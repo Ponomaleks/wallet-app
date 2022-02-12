@@ -1,0 +1,61 @@
+/* ! ========= Currency component styles ======== */
+
+.table-wrapper {
+  position: relative;
+  max-width: 280px;
+  color: var(--light-color);
+}
+
+.table-wrapper svg {
+  position: absolute;
+  bottom: 0;
+  height: 70%;
+  width: 100%;
+  transition: transform 1s var(--time-function);
+}
+
+.table-wrapper svg:hover,
+.table-wrapper svg:focus-visible {
+  transform: scale(1.2);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 30px;
+  background: var(--blue-active);
+  overflow: hidden;
+}
+
+table th {
+  font-family: 'Circe Bold';
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.44;
+  padding: 10px;
+  background: var(--blue-color);
+  text-transform: none;
+}
+
+table td {
+  padding: 10px 20px;
+}
+
+.currency-name,
+.currency-buy-value,
+.currency-sell-value {
+  font-family: 'Circe Regular';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.44;
+}
+
+.currency-buy-value {
+  text-align: center;
+}
+
+.currency-sell-value {
+  text-align: right;
+}
+
+/* ! ======= End currency component styles ====== */
