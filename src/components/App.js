@@ -1,3 +1,7 @@
+import { lazy, Suspense, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Routes, Route } from 'react-router';
+
 function App() {
   return (
     <div
