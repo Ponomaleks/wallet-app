@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Circe Bold';
+  src: url('../fonts/Circe-Bold.otf');
+}
+
+@font-face {
+  font-family: 'Circe Regular';
+  src: url('../fonts/Circe-Regular.otf');
+}
+
+@font-face {
+  font-family: 'SegoeUI';
+  src: url('../fonts/segoeui.ttf');
+}
+
+@font-face {
+  font-family: 'SegoeUIBold';
+  src: url('../fonts/segoeuib.ttf');
+}
