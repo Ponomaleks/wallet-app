@@ -1,0 +1,16 @@
+:root {
+  --main-font: 'Circe';
+  --headers: 'Poppins';
+  --light-color: #fff;
+  --dark-color: #000;
+  --grey-text: #bdbdbd;
+  --auth-icons: #e0e0e0;
+  --green-color: #24cca7;
+  --blue-color: #6e78e8;
+  --blue-active: #4a56e2;
+  --main-background: #e7eaf2;
+  --bckgr-left-fig: #c5baff;
+  --bckgr-right-fig: #ffd8d0;
+  --time-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --costs: #ff6596;
+}
