@@ -2,29 +2,28 @@
 
 .table-wrapper {
   position: relative;
-  max-width: 280px;
+  width: 280px;
+  border-radius: 30px;
+  background: var(--blue-active);
   color: var(--light-color);
+  overflow: hidden;
 }
 
 .table-wrapper svg {
   position: absolute;
-  bottom: 0;
+  bottom: -15%;
   height: 70%;
   width: 100%;
   transition: transform 1s var(--time-function);
 }
 
 .table-wrapper svg:hover,
-.table-wrapper svg:focus-visible {
+.table-wrapper svg:focus-within {
   transform: scale(1.2);
 }
 
 table {
-  width: 100%;
   border-collapse: collapse;
-  border-radius: 30px;
-  background: var(--blue-active);
-  overflow: hidden;
 }
 
 table th {
@@ -32,13 +31,16 @@ table th {
   font-size: 18px;
   font-weight: 700;
   line-height: 1.44;
+  min-height: 50px;
+  width: 280px;
   padding: 10px;
-  background: var(--blue-color);
   text-transform: none;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  background: var(--blue-color);
 }
 
 table td {
-  padding: 10px 20px;
+  width: 280px;
 }
 
 .currency-name,
@@ -48,14 +50,73 @@ table td {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.44;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.currency-buy-value {
-  text-align: center;
+.currency-name {
+  text-align: left;
+  padding: 10px 20px 10px 25px;
 }
 
+.currency-buy-value,
 .currency-sell-value {
-  text-align: right;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
+.Loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 320px) {
+  .table-wrapper {
+    width: 334px;
+  }
+  table th {
+    width: 334px;
+  }
+  table tbody {
+    width: 334px;
+  }
+  .table-wrapper svg {
+    transform: scale(1.1);
+  }
+  .currency-name {
+    padding: 10px 20px 10px 32px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .table-wrapper {
+    width: 348px;
+    height: 347px;
+  }
+  table th {
+    height: 60px;
+    width: 348px;
+  }
+  table tbody {
+    width: 348px;
+  }
+  .table-wrapper svg {
+    bottom: -20%;
+    transform: scale(1.1);
+  }
+  .currency-name {
+    padding: 20px 30px 10px 30px;
+  }
+  .currency-buy-value,
+  .currency-sell-value {
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  .table-wrapper svg:hover,
+  .table-wrapper svg:focus-within {
+    transform: scale(1.3);
+  }
+}
 /* ! ======= End currency component styles ====== */
