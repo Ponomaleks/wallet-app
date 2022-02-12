@@ -133,7 +133,13 @@ export default function Currency() {
   return (
     <>
       {loading && (
-        <Triangle height="100" width="100" color="grey" ariaLabel="loading" />
+        <Triangle
+          height="200"
+          width="200"
+          color="#ff6596"
+          ariaLabel="loading"
+          className="Loader"
+        />
       )}
       <div className="table-wrapper">
         <table>

@@ -7,25 +7,27 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <div
-      className="App"
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        textTransform: 'uppercase',
-      }}
-    >
-      Wallet app
-      {/* Toast container has to be on the top level after Routes */}
+    <>
+      <div
+        className="App"
+        style={{
+          height: '100vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontSize: 40,
+          textTransform: 'uppercase',
+        }}
+      >
+        Wallet app
+        {/* Toast container has to be on the top level after Routes */}
+      </div>
       <ToastContainer
         transition={Zoom}
         autoClose={4000}
         toastStyle={{ backgroundColor: '#c57d7d', color: '#000000' }}
       />
-    </div>
+    </>
   );
 }
 
