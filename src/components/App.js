@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router';
 import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import 'react-toastify/dist/ReactToastify.css';
+import Modal from './Modal';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       >
         Wallet app
         {/* Toast container has to be on the top level after Routes */}
+        <Modal/>
       </div>
       <ToastContainer
         transition={Zoom}
