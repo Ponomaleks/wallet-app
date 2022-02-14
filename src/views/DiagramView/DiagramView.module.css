@@ -1,0 +1,14 @@
+.diagramView {
+  display: flex;
+}
+
+@media screen and (min-width: 768px) {
+  .diagramView {
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .diagramView {
+    flex-direction: row;
+  }
+}
