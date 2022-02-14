@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { styled, Box } from '@mui/system';
 import ModalUnstyled from '@mui/base/ModalUnstyled';
 import s from './Modal.module.css'
-import { Button } from '@mui/material';
-	
-import svg from '../../images/modal-close-icon.svg';
+import ButtonSwitch from '../ButtonSwitch/ButtonSwitch'
+import AddIcon from '@material-ui/icons/Add';	
+import svg from '../../../images/modal-close-icon.svg';
+
+
 
 const StyledModal = styled(ModalUnstyled)`
   position: fixed;
@@ -30,16 +32,18 @@ const Backdrop = styled('div')`
 `;
 
 function Modal() {
+
     const [open, setOpen]= useState(false);
-    const handleToggle = ()=>{
-    setOpen(true);
-    }
+    const handleOpen = ()=>setOpen(true);
     const handleClose = () => setOpen(false);
+    const Income = ()=>1;
+    const Outlay = () => setOpen(false);
     return (
     <>
-        <button type="button" onClick={handleToggle}>
-            Open modal
+        <button className={s.button} type="button" name="addOperation" onClick={handleOpen}>
+            <AddIcon className={s.buttonIcon} fontSize="large" />
         </button>
+
         <StyledModal
             open={open}
             onClose={handleClose}
@@ -50,14 +54,8 @@ function Modal() {
                     <button className={s.closeButton} type="button" onClick={handleClose}>
                         <img src={svg} alt=""/>
                     </button>
-                    <h2>Text in a modal</h2>
-                        <div className={s.radio}>
-                            <input className={s.radioInput} type="radio" value="option1" name="myRadio" id="myRadio1"></input>
-                            <label className={s.radioLabel} for="myRadio1">op</label>
-                            <input className={s.radioInput} type="radio" value="option2" name="myRadio" id="myRadio2"></input>
-                            <label className={s.radioLabel} for="myRadio2">op</label>
-                        </div>
-                    <p>Aliquid amet deserunt earum!</p>
+                    <h2>Add transaction</h2>
+                    <ButtonSwitch name="checked" value={0} changeSwitch={0}/>
                 </div>
             </Box>
         </StyledModal>

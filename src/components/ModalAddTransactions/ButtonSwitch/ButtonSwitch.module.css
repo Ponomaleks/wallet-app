@@ -1,0 +1,56 @@
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 42px 0 40px 0;
+  }
+  
+  .switch {
+    display: flex;
+    border: solid 1px var(--auth-icons);
+    border-radius: 40px;
+    margin: 0 20px;
+  }
+  
+  .buttonModalIncome {
+    color: var(--green-color);
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    top: -8px;
+    left: -10px;
+  }
+  
+  .buttonModalOutlay {
+    color: var(--costs);
+    cursor: pointer;
+    position: absolute;
+    top: -8px;
+    left: -10px;
+  }
+  
+  .incomeActive {
+    color: var(--green-color);
+  }
+  
+  .outlayActive {
+    color: var(--costs);
+  }
+  
+  .outlayNoActive,
+  .incomeNoActive {
+    color: var(--auth-icons);
+  }
+  
+  .outlayNoActive,
+  .incomeNoActive,
+  .outlayActive,
+  .incomeActive {
+    font-size: 16px;
+  }
+  
+  .category {
+    margin-bottom: 40px;
+  }

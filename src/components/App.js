@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router';
 import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import 'react-toastify/dist/ReactToastify.css';
-import Modal from './Modal';
+import Modal from './ModalAddTransactions/Modal';
 
 function App() {
   return (

@@ -1,0 +1,62 @@
+.box{
+    position: absolute;
+    width: 540px;
+    background: var(--light-color);
+    display: flex;
+    font-size: 40px;
+    border-style: none;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+    background-color: var(--light-color);
+    transition: all .25s cubic-bezier(.4,0,.2,1);
+        
+}
+
+.button {
+    border: none;
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0px 6px 15px var(--green-color);
+    width: 44px;
+    height: 44px;
+    right: 20px;
+    bottom: 20px;
+    padding: 0;
+    display: block;
+    background-color: var(--green-color);
+    @media screen and (min-width: 768px) {
+      right: 40px;
+      bottom: 40px;
+    }
+  
+    @media screen and (min-width: 1280px) {
+      right: 85px;
+    }
+  }
+  
+  .buttonIcon {
+    color: var(--light-color);
+  
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    transform: scale(1.2);
+    
+  }
