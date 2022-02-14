@@ -5,7 +5,7 @@ import { fetchCurrency } from '../../service/getCurrency';
 import { ReactComponent as Waves } from './waves.svg';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import 'react-toastify/dist/ReactToastify.css';
-import './Currency.css';
+import s from './Currency.module.css';
 
 const initialCurrState = {
   buy: null,
@@ -83,7 +83,7 @@ export default function Currency() {
               JSON.stringify({
                 buy: currency.rateBuy,
                 sell: currency.rateSell,
-              })
+              }),
             );
           }
           if (
@@ -99,7 +99,7 @@ export default function Currency() {
               JSON.stringify({
                 buy: currency.rateBuy,
                 sell: currency.rateSell,
-              })
+              }),
             );
           }
           if (
@@ -115,7 +115,7 @@ export default function Currency() {
               JSON.stringify({
                 buy: currency.rateBuy,
                 sell: currency.rateSell,
-              })
+              }),
             );
           }
         });
@@ -123,7 +123,7 @@ export default function Currency() {
       })
       .catch(error => {
         toast.error(
-          'Something went wrong while loading currency data. Please, try again later! 😉'
+          'Something went wrong while loading currency data. Please, try again later! 😉',
         );
         console.log(error);
         setLoading(false);
@@ -138,44 +138,44 @@ export default function Currency() {
           width="200"
           color="#ff6596"
           ariaLabel="loading"
-          className="Loader"
+          className={s.loader}
         />
       )}
-      <div className="table-wrapper">
+      <div className={s.tableWrapper}>
         <table>
           <thead>
             <tr>
-              <th className="table-head">Currency</th>
-              <th className="table-head">Buy</th>
-              <th className="table-head">Sell</th>
+              <th>Currency</th>
+              <th>Buy</th>
+              <th>Sell</th>
             </tr>
           </thead>
 
           <tbody>
             <tr>
-              <td className="currency-name">USD</td>
-              <td className="currency-buy-value">
+              <td className={s.currencyName}>USD</td>
+              <td className={s.currencyBuyValue}>
                 {Number(USD.buy).toFixed(2)}
               </td>
-              <td className="currency-sell-value">
+              <td className={s.currencySellValue}>
                 {Number(USD.sell).toFixed(2)}
               </td>
             </tr>
             <tr>
-              <td className="currency-name">EUR</td>
-              <td className="currency-buy-value">
+              <td className={s.currencyName}>EUR</td>
+              <td className={s.currencyBuyValue}>
                 {Number(EUR.buy).toFixed(2)}
               </td>
-              <td className="currency-sell-value">
+              <td className={s.currencySellValue}>
                 {Number(EUR.sell).toFixed(2)}
               </td>
             </tr>
             <tr>
-              <td className="currency-name">RUB</td>
-              <td className="currency-buy-value">
+              <td className={s.currencyName}>RUB</td>
+              <td className={s.currencyBuyValue}>
                 {Number(RUB.buy).toFixed(2)}
               </td>
-              <td className="currency-sell-value">
+              <td className={s.currencySellValue}>
                 {Number(RUB.sell).toFixed(2)}
               </td>
             </tr>
