@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './404.css';
 
 function NotFoundView() {
@@ -14,15 +14,9 @@ function NotFoundView() {
         <div className="top-tape"></div>
         <p>Wanna go Home? 😉</p>
       </div>
-      <a
-        href="https://www.google.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="stickerLink"
-      >
-        {' '}
+      <Link className="stickerLink" to="/">
         Click Here
-      </a>
+      </Link>
     </div>
   );
 }
