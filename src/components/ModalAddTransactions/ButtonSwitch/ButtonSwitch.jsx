@@ -1,8 +1,7 @@
 import React from 'react';
 import Switch from 'react-switch';
-import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
 import s from './ButtonSwitch.module.css';
+import svg from '../../../images/plus-icon.svg';
 
 function ButtonSwitch({ value, changeSwitch }) {
     return (
@@ -18,17 +17,16 @@ function ButtonSwitch({ value, changeSwitch }) {
               }}
               checked={value}
               uncheckedHandleIcon={
-                <AddCircleIcon
-                  style={{ width: 56, height: 56 }}
-                  className={s.buttonModalIncome}
-                />
+                <div className={s.buttonModalIncome }>
+                  <img className={s.buttonModalIncome_svg} src={svg} alt=""/>
+                </div>
               }
               checkedHandleIcon={
-                <RemoveCircleIcon
-                  style={{ width: 56, height: 56 }}
-                  className={s.buttonModalOutlay}
-                />
+                <div className={s.buttonModalOutlay}>
+                  <img className={s.buttonModalOutlay_svg} src={svg} alt=""/>
+                </div>
               }
+              border="none"
               height={40}
               width={80}
               handleDiameter={40}
@@ -39,7 +37,7 @@ function ButtonSwitch({ value, changeSwitch }) {
               onColor="#fff"
             />
           </label>
-          <h3 className={value ? s.outlayActive : s.outlayNoActive}>Outlay</h3>
+          <h3 className={value ? s.outlayActive : s.outlayNoActive}>Expense</h3>
         </div>
       );
 }
