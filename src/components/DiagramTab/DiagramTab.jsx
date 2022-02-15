@@ -3,18 +3,18 @@ import Table from './Table/Table';
 import s from './DiagramTab.module.css';
 
 //=======test data
-import transactions from '../../devData.json';
+import statistics from '../../devData.json';
 
 //========
 
 export default function DiagramTab() {
   return (
-    <>
+    <div className={s.tab}>
       <h2 className={s.header}>Statistics</h2>
       <div className={s.wrapper}>
-        <Chart data={transactions}></Chart>
-        <Table data={transactions}></Table>
+        {statistics.length ? <Chart statistics={statistics}></Chart> : null}
+        <Table data={statistics}></Table>
       </div>
-    </>
+    </div>
   );
 }

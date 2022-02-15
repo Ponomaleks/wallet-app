@@ -1,3 +1,9 @@
+.tab {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+}
+
 .header {
   color: var(--dark-color);
   font-family: 'Poppins', sans-serif;
@@ -8,8 +14,10 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
+  width: 100%;
 }
 
 @media screen and (min-width: 768px) {
