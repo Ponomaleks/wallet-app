@@ -2,6 +2,7 @@
   position: relative;
   width: 280px;
   height: 280px;
+  flex-shrink: 0;
 }
 
 @media screen and (min-width: 768px) {

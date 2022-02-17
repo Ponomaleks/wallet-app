@@ -22,11 +22,11 @@
   transform: scale(1.2);
 }
 
-table {
+.tableWrapper table {
   border-collapse: collapse;
 }
 
-table th {
+.tableWrapper th {
   font-family: 'Circe Bold';
   font-size: 18px;
   font-weight: 700;
@@ -39,7 +39,7 @@ table th {
   background: var(--blue-color);
 }
 
-table td {
+.tableWrapper td {
   width: 280px;
 }
 
@@ -76,10 +76,10 @@ table td {
   .tableWrapper {
     width: 334px;
   }
-  table th {
+  .tableWrapper th {
     width: 334px;
   }
-  table tbody {
+  .tableWrapper tbody {
     width: 334px;
   }
   .tableWrapper svg {
@@ -95,11 +95,11 @@ table td {
     width: 348px;
     height: 347px;
   }
-  table th {
+  .tableWrapper th {
     height: 60px;
     width: 348px;
   }
-  table tbody {
+  .tableWrapper tbody {
     width: 348px;
   }
   .tableWrapper svg {
