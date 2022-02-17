@@ -4,17 +4,26 @@ import s from './DiagramTab.module.css';
 
 //=======test data
 import statistics from '../../devData.json';
-
-// //========
+//========
+const renderData = [];
+for (const item of statistics) {
+  if (item.typeTransaction) {
+    continue;
+  }
+  renderData.push(item);
+}
 
 export default function DiagramTab() {
   return (
     <div className={s.tab}>
       <h2 className={s.header}>Statistics</h2>
       <div className={s.wrapper}>
-        {statistics.length ? <Chart statistics={statistics}></Chart> : null}
-        <Table data={statistics}></Table>
+        {statistics.length ? <Chart statistics={renderData}></Chart> : null}
+        <Table data={renderData}></Table>
       </div>
     </div>
   );
 }
+
+// можно сделать радиобатон и выодить статистику по расходам/доходам (но нужно больше категорий дохода)
+// можно

@@ -34,7 +34,6 @@ function App() {
       >
         <Routes>
           <Route
-            exact
             path="/register"
             element={<RegisterView replase to="/login" />}
           />
