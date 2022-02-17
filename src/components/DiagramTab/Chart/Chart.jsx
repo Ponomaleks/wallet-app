@@ -4,6 +4,9 @@ import s from './Chart.module.css';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Chart({ statistics }) {
+  const width = 320;
+  const height = 320;
+
   const dataArr = statistics.map(el => Number(el.amountTransaction)); // уточнить формат данніх в базе (числа/строки)
   const total = dataArr.reduce((a, b) => b + a);
   const data = {
@@ -21,6 +24,10 @@ export default function Chart({ statistics }) {
           '#24CCA7',
           '#00AD84',
         ],
+        cutout: 100,
+        borderWidth: 0,
+        hoverOffset: 10,
+        maintainAspectRatio: false,
       },
     ],
   };
@@ -28,7 +35,13 @@ export default function Chart({ statistics }) {
   return (
     <>
       <div className={s.wrapper}>
-        <Doughnut data={data} />
+        <Doughnut
+          className={s.chart}
+          data={data}
+          width={width}
+          height={height}
+          options={{ maintainAspectRatio: false, responsive: true }}
+        />
         {{ total } ? <span className={s.total}>₴ {total}</span> : null}
       </div>
     </>
@@ -36,5 +49,4 @@ export default function Chart({ statistics }) {
 }
 
 // идеи *
-// можно закрепить цвет за каждой категории (хранить не в БД, а в привязке к селектам, т.к. цвета отображаются только в этом элементе)
-// можно сделать радиобатон и выодить статистику по расходам/доходам
+// можно закрепить цвет за каждой категорией (хранить не в БД, а в привязке к DiagramTab, т.к. цвета отображаются только в этом элементе)
