@@ -1,5 +1,5 @@
-import { lazy, Suspense, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { lazy, Suspense } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer, Zoom } from 'react-toastify';
 import { Triangle } from 'react-loader-spinner';

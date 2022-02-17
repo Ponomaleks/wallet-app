@@ -10,8 +10,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-
 import { authReducer } from './auth';
+import transactionsReducer from './transactions';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -30,9 +30,20 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    transactions: transactionsReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
+
+  // middleware: getDefaultMiddleware => [
+  //   ...getDefaultMiddleware({
+  //     serializableCheck: {
+  //       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+  //     },
+  //   }),
+
+  //   logger,
+  // ],
 });
 
 export const persistor = persistStore(store);
