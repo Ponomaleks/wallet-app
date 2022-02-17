@@ -13,7 +13,6 @@ import LoginView from '../views/LoginView';
 
 import Modal from './ModalAddTransactions/Modal';
 
-
 // lazy-loading pages:
 const NotFoundView = lazy(() =>
   import('../views/NotFoundView' /* webpackChunkName: "404-page" */),
@@ -35,7 +34,6 @@ function App() {
       >
         <Routes>
           <Route
-            exact
             path="/register"
             element={<RegisterView replase to="/login" />}
           />
@@ -46,7 +44,7 @@ function App() {
           <Route path="*" element={<NotFoundView />} />
         </Routes>
       </Suspense>
-      <Modal/>
+      <Modal />
       <ToastContainer
         transition={Zoom}
         autoClose={4000}
