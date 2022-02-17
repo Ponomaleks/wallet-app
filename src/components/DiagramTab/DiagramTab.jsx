@@ -5,7 +5,7 @@ import s from './DiagramTab.module.css';
 //=======test data
 import statistics from '../../devData.json';
 
-//========
+// //========
 
 export default function DiagramTab() {
   return (
