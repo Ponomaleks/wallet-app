@@ -7,6 +7,8 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import 'react-toastify/dist/ReactToastify.css';
 import DiagramView from '../views/DiagramView';
 import HomeView from '../views/HomeView/HomeView';
+import RegisterView from '../views/RegisterView';
+import LoginView from '../views/LoginView';
 
 // lazy-loading pages:
 const NotFoundView = lazy(() =>
@@ -28,6 +30,12 @@ function App() {
         }
       >
         <Routes>
+          <Route
+            exact
+            path="/register"
+            element={<RegisterView replase to="/login" />}
+          />
+          <Route path="/login" element={<LoginView replase to="/" />} />
           <Route path="/" element={<Navigate replace to="/home" />} />
           <Route path="/home" element={<HomeView />} />
           <Route path="/diagram" element={<DiagramView />} />

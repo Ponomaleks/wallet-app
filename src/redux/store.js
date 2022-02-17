@@ -1,5 +1,4 @@
-import logger from 'redux-logger';
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -12,26 +11,28 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-//Аня, я добавил настройки со своей домашки, если нужно - меняй под себя
+import { authReducer } from './auth';
+
+const middleware = [
+  ...getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  }),
+];
+
 const authPersistConfig = {
   key: 'auth',
   storage,
   whitelist: ['token'],
 };
 
-const store = configureStore({
-  reducer: {},
-  middleware: getDefaultMiddleware => [
-    ...getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
-
-    logger,
-  ],
-  devtools: true,
-  devtools: process.env.NODE_ENV === 'development',
+export const store = configureStore({
+  reducer: {
+    auth: persistReducer(authPersistConfig, authReducer),
+  },
+  middleware,
+  devTools: process.env.NODE_ENV === 'development',
 });
-const persistor = persistStore(store);
-export { store, persistor };
+
+export const persistor = persistStore(store);
