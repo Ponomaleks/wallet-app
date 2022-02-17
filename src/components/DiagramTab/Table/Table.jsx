@@ -25,7 +25,7 @@ export default function Table({ data }) {
               <td className={s.tableData}>{amountTransaction}</td>
             </tr>
           ))}
-        </tbody>{' '}
+        </tbody>
         <tfoot>
           <tr>
             <th>Costs:</th>
