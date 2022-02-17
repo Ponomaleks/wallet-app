@@ -7,8 +7,12 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import 'react-toastify/dist/ReactToastify.css';
 import DiagramView from '../views/DiagramView';
 import HomeView from '../views/HomeView/HomeView';
+
 import RegisterView from '../views/RegisterView';
 import LoginView from '../views/LoginView';
+
+import Modal from './ModalAddTransactions/Modal';
+
 
 // lazy-loading pages:
 const NotFoundView = lazy(() =>
@@ -42,6 +46,7 @@ function App() {
           <Route path="*" element={<NotFoundView />} />
         </Routes>
       </Suspense>
+      <Modal/>
       <ToastContainer
         transition={Zoom}
         autoClose={4000}
