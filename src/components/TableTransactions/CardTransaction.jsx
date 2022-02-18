@@ -23,15 +23,15 @@ const useStyles = makeStyles({
   },
   title: {
     display: 'inline-block',
-    width: '119.5px',
+    width: '121.5px',
     fontWeight: 700,
   },
   value: {
     display: 'inline-block',
-    width: '50%',
+    width: '42%',
     fontSize: '16px',
     textAlign: 'right',
-    marginRight: '-50%',
+    marginRight: '-42%',
   },
   greenBorder: {
     borderLeftStyle: 'solid',
