@@ -6,7 +6,7 @@ defaults.styling = 'material';
 defaults.icons = 'material';
 defaults.delay = 1000;
 
-axios.defaults.baseURL = 'http://localhost:8080/api-docs/'; //поставить ссылку на бек
+axios.defaults.baseURL = 'http://localhost:8080/api'; //поставить ссылку на бек
 
 const token = {
   set(token) {
@@ -22,11 +22,13 @@ const register = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/auth/register', credentials);
-      const user = data.data.user;
+      console.log(credentials);
+      console.log(data.user);
+      const user = data.user;
 
       const login = await axios.post('auth/login', user);
-      const activeUser = login.data.data.user;
-      const activeToken = login.data.data.token;
+      const activeUser = login.user;
+      const activeToken = login.token;
       token.set(activeToken);
 
       const finishedUser = {
@@ -46,7 +48,8 @@ const login = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/auth/login', credentials);
-      token.set(data.data.token);
+      console.log(data.token);
+      token.set(data.token);
       return data;
     } catch (error) {
       alert({
