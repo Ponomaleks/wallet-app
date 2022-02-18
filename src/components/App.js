@@ -7,7 +7,6 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import 'react-toastify/dist/ReactToastify.css';
 import DiagramView from '../views/DiagramView';
 import HomeView from '../views/HomeView/HomeView';
-
 import RegisterView from '../views/RegisterView';
 import LoginView from '../views/LoginView';
 

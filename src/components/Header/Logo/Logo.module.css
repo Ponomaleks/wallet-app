@@ -1,0 +1,25 @@
+.logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+@media screen and (min-width: 768px) {
+  .logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+  }
+}
+
+.logo_text {
+  color: var(--dark-color);
+  font-family: 'Poppins-Bold', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+}
+@media screen and (min-width: 768px) {
+  .logo_text {
+    font-size: 30px;
+  }
+}
