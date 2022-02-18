@@ -1,7 +1,8 @@
 import React from 'react';
 import Switch from 'react-switch';
 import s from './ButtonSwitch.module.css';
-import svg from '../../../images/plus-icon.svg';
+import plus from '../../../images/plus-icon.svg';
+import minus from '../../../images/minus-icon.svg';
 
 function ButtonSwitch({ value, changeSwitch }) {
     return (
@@ -18,12 +19,12 @@ function ButtonSwitch({ value, changeSwitch }) {
               checked={value}
               uncheckedHandleIcon={
                 <div className={s.buttonModalIncome }>
-                  <img className={s.buttonModalIncome_svg} src={svg} alt=""/>
+                  <img className={s.buttonModalIncome_svg} src={plus} alt=""/>
                 </div>
               }
               checkedHandleIcon={
                 <div className={s.buttonModalOutlay}>
-                  <img className={s.buttonModalOutlay_svg} src={svg} alt=""/>
+                  <img className={s.buttonModalOutlay_svg} src={minus} alt=""/>
                 </div>
               }
               border="none"

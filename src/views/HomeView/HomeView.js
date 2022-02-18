@@ -8,6 +8,7 @@ import {
 import Sidebar from '../../components/Sidebar';
 import s from './HomeView.module.css';
 import Header from '../../components/Header';
+import Modal from '../../components/ModalAddTransactions/Modal';
 
 // import { useSelector } from 'react-redux';
 // import { getIsLoggedIn } from '../redux/user';
@@ -37,13 +38,16 @@ const HomeView = () => {
                   alignItems="center"
                   padding="0px"
                 >
+                  
                   <TableTransactionsMobile />
                 </Box>
               )}
-              {matches.other && <TableTransactions />}
+              {matches.other && <><Modal/><TableTransactions /></>}
+              
             </Fragment>
           )}
         </Media>
+        <Modal />
       </div>
     </>
   );

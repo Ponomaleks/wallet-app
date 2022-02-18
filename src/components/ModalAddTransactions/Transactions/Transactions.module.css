@@ -1,0 +1,95 @@
+.box{
+    position: absolute;
+    width: 320px;
+    background: var(--light-color);
+    display: flex;
+    font-size: 40px;
+    border-style: none;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 43px;
+}
+
+
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 20px;
+  margin-right: 20px;
+  border-radius: 50%;
+  display: flex;
+  width: 20px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  border-style: none;
+  background-color: var(--light-color);
+  transition: var(--time-function);    
+}
+
+.closeButton:hover,
+.closeButton:focus{
+  transition: var(--time-function);
+  background-color: var(--auth-icons);
+}
+
+.leader{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  line-height: 36px;
+  margin: 0;
+  margin-top: 40px;
+}
+
+.button {
+    border: none;
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0px 6px 15px var(--green-color);
+    width: 44px;
+    height: 44px;
+    right: 20px;
+    bottom: 40px;
+    padding: 0;
+    display: block;
+    background-color: var(--green-color); 
+  }
+
+  @media screen and (min-width: 1280px) {
+    .button{
+      right: 85px;
+    }
+  }
+  
+  @media screen and (min-width: 540px) {
+    .box {
+      width: 540px;
+      border-radius: 20px;
+      padding-bottom: 60px;
+    }
+    .button{
+      right: 40px;
+    }
+    .leader{
+      font-size: 30px;
+      line-height: 45px;
+    }
+  }
+
+  .buttonIcon {
+    position: absolute;
+    top:3px;
+    left: 5px;
+    color: var(--light-color);
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    transform: scale(1.1);
+  
+  }
+
+  

@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { styled, Box } from '@mui/system';
 import ModalUnstyled from '@mui/base/ModalUnstyled';
 import s from './Modal.module.css';
-import ButtonSwitch from '../ButtonSwitch/ButtonSwitch';
-import Buttons from '../Buttons/Buttons';
-import UnstyledSelectCustomRenderValueIncome from '../SelectIncome/SelectIncome';
-import UnstyledSelectCustomRenderValueExpense from '../SelectExpense/SelectExpense';
-import LocalizedDatePicker from '../DatePicker/DatePicker';
 import AddIcon from '@material-ui/icons/Add';
-import svg from '../../../images/modal-close-icon.svg';
+import Transactions from '../Transactions'
+
+import {
+  operationsSelectors,
+  operationsAction,
+} from '../../../redux/operations';
 
 const StyledModal = styled(ModalUnstyled)`
   position: fixed;
@@ -31,53 +32,47 @@ const Backdrop = styled('div')`
   left: 0;
   -webkit-tap-highlight-color: transparent;
   background-color: none;
-  @media screen and (min-width: 768px) {
+  onClick={closeModal};
+  @media screen and (min-width: 320px) {
     background-color: rgba(0, 0, 0, 0.5);
   }
 `;
 
-function Modal() {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+
+const Modal = () =>{
+  const modal = useSelector(operationsSelectors.getModalValue);
+  const dispatch = useDispatch();
+
+  const closeModal = useCallback(
+    () => dispatch(operationsAction.closeModal()),
+    [dispatch],
+  );
+
+  const openModal = useCallback(
+    () => dispatch(operationsAction.openModal()),
+    [dispatch],
+  );
+
   return (
     <>
       <button
         className={s.button}
         type="button"
         name="addOperation"
-        onClick={handleOpen}
+        onClick={openModal}
       >
         <AddIcon className={s.buttonIcon} fontSize="large" />
       </button>
+
       <StyledModal
         className={s.styledModal}
-        open={open}
-        onClose={handleClose}
+        open={modal}
         BackdropComponent={Backdrop}
+        onClose={closeModal}
+        closeAfterTransition
       >
         <Box className={s.box}>
-          <div>
-            <button
-              className={s.closeButton}
-              type="button"
-              onClick={handleClose}
-            >
-              <img src={svg} alt="" />
-            </button>
-            <h2 className={s.leader}>Add transaction</h2>
-            <ButtonSwitch name="checked" value={true} changeSwitch={true} />
-            <UnstyledSelectCustomRenderValueIncome />
-            <UnstyledSelectCustomRenderValueExpense />
-            <LocalizedDatePicker />
-            <input name="sumTransaction" placeholder="0.00" type="number" />
-            <input
-              name="commentTransaction"
-              placeholder="Comment"
-              type="text"
-            ></input>
-            <Buttons />
-          </div>
+          <Transactions/>
         </Box>
       </StyledModal>
     </>
