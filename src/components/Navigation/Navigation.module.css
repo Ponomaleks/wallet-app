@@ -1,5 +1,7 @@
 nav {
   display: flex;
+  margin-bottom: 10px;
+  justify-content: space-evenly;
 }
 
 a {
@@ -30,6 +32,7 @@ svg {
 @media screen and (min-width: 768px) {
   nav {
     flex-direction: column;
+    margin-bottom: 20px;
   }
   svg {
     margin-right: 23px;
@@ -38,5 +41,10 @@ svg {
 
   nav a:not(:last-child) {
     margin-bottom: 10px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  nav {
+    margin-bottom: 30px;
   }
 }

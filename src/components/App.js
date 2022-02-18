@@ -1,5 +1,5 @@
-import { lazy, Suspense, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { lazy, Suspense } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer, Zoom } from 'react-toastify';
 import { Triangle } from 'react-loader-spinner';
@@ -12,7 +12,6 @@ import RegisterView from '../views/RegisterView';
 import LoginView from '../views/LoginView';
 
 import Modal from './ModalAddTransactions/Modal';
-
 
 // lazy-loading pages:
 const NotFoundView = lazy(() =>
@@ -35,7 +34,6 @@ function App() {
       >
         <Routes>
           <Route
-            exact
             path="/register"
             element={<RegisterView replase to="/login" />}
           />
@@ -46,7 +44,7 @@ function App() {
           <Route path="*" element={<NotFoundView />} />
         </Routes>
       </Suspense>
-      <Modal/>
+      <Modal />
       <ToastContainer
         transition={Zoom}
         autoClose={4000}
