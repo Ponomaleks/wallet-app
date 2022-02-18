@@ -22,7 +22,7 @@ export default function Table({ data }) {
 
                 {category}
               </td>
-              <td className={s.tableData}>{amountTransaction}</td>
+              <td className={s.tableData}>{amountTransaction.toFixed(2)}</td>
             </tr>
           ))}
         </tbody>

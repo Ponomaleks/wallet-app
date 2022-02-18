@@ -7,7 +7,7 @@ const setActive = ({ isActive }) => {
 
 export default function Navigation() {
   return (
-    <nav>
+    <nav className={s.viewNavigation}>
       <NavLink to="/home" className={setActive}>
         <svg
           version="1.1"

@@ -1,10 +1,10 @@
-nav {
+.viewNavigation {
   display: flex;
   margin-bottom: 10px;
   justify-content: space-evenly;
 }
 
-a {
+.viewNavigation a {
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
   font-weight: normal;
@@ -15,13 +15,13 @@ a {
   align-items: center;
 }
 
-svg {
+.viewNavigation svg {
   width: 18px;
   height: 18px;
   fill: var(--blue-color);
 }
 
-.active {
+.viewNavigation .active {
   font-weight: bold;
 }
 
@@ -30,21 +30,21 @@ svg {
 }
 
 @media screen and (min-width: 768px) {
-  nav {
+  .viewNavigation {
     flex-direction: column;
     margin-bottom: 20px;
   }
-  svg {
+  .viewNavigation svg {
     margin-right: 23px;
     filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
   }
 
-  nav a:not(:last-child) {
+  .viewNavigation a:not(:last-child) {
     margin-bottom: 10px;
   }
 }
 @media screen and (min-width: 1280px) {
-  nav {
+  .viewNavigation {
     margin-bottom: 30px;
   }
 }
