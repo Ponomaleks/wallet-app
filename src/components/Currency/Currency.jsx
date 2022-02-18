@@ -181,7 +181,7 @@ export default function Currency() {
             </tr>
           </tbody>
         </table>
-        <Waves />
+        <Waves className={s.waves} />
       </div>
     </>
   );

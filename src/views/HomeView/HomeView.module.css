@@ -1,9 +1,21 @@
 .homeView {
   display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .homeView {
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .homeView {
+    flex-direction: row;
+  }
 }
 
 .homeBackground {
-  position: absolute;
+  /* position: absolute; */
   background-image: url(../../images/backgroundProject.jpg);
   background-repeat: no-repeat;
   background-size: cover;
