@@ -1,6 +1,7 @@
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import s from './Chart.module.css';
+import formatNumber from '../../../service/formatNumber';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Chart({ statistics }) {
@@ -42,7 +43,15 @@ export default function Chart({ statistics }) {
           height={height}
           options={{ maintainAspectRatio: false, responsive: true }}
         />
-        {{ total } ? <span className={s.total}>₴ {total}</span> : null}
+        {{ total } ? (
+          <span className={s.total}>
+            ₴{' '}
+            {formatNumber(total, {
+              precision: 2,
+              thousand: ' ',
+            })}
+          </span>
+        ) : null}
       </div>
     </>
   );

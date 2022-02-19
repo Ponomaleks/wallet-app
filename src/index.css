@@ -95,3 +95,12 @@ body {
     padding: 0 85px;
   }
 }
+
+#root {
+  /* background-image: url('./images/Ellipse1.svg'), url('./images/Ellipse2.svg');
+  background-size: 618px, 720px;
+  background-position: bottom left, top right;
+  background-repeat: no-repeat, no-repeat; */
+  /* background-color: rgba(255, 255, 255, 0.4); */
+  /* backdrop-filter: blur(50px); */
+}
