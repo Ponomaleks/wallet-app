@@ -1,13 +1,13 @@
 .tab {
-  padding-left: 30px;
   width: 100%;
 }
 
 .header {
   color: var(--dark-color);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins Bold', sans-serif;
   font-size: 30px;
-  line-height: 45px;
+  line-height: 1.5;
+  padding-top: 10px;
 }
 
 .wrapper {
@@ -22,12 +22,14 @@
 
 .tableWrapper {
   width: 100%;
-  max-width: 350px;
 }
 
 @media screen and (min-width: 768px) {
   .wrapper {
     flex-direction: row;
     align-items: flex-start;
+  }
+  .tab {
+    padding-left: 30px;
   }
 }

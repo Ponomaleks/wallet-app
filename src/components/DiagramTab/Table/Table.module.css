@@ -31,42 +31,49 @@
 .tableBody td {
   border-bottom: 1px solid #dcdcdf;
   box-shadow: 0 5px 4px -5px rgb(255 255 255 / 60%);
-  font-family: Circe, sans-serif;
+  font-family: Circe Regular, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
+  height: 54px;
+  vertical-align: middle;
 }
 
 td:first-child {
-  padding: 19px 0 17px 30px;
+  padding-left: 30px;
   text-align: start;
 }
 td:not(:first-child) {
-  padding: 19px 30px 17px 0;
+  padding-right: 30px;
   text-align: end;
 }
 
-/* th:first-child {
-  text-align: start;
+.costs_sum,
+.income_sum {
+  font-family: 'Circe Bold';
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
+.costs_sum {
+  color: var(--costs);
+  padding-top: 15px;
+}
+.income_sum {
+  color: var(--green-color);
+  padding-top: 10px;
+}
+
+.tableFooter .costs {
+  padding-top: 15px;
+}
+
+.tableFooter .income {
+  padding-top: 10px;
+}
+
+.tableFooter th {
+  text-align: left;
   padding-left: 30px;
-}
-
-th:last-child {
-  border-radius: 0px 30px 30px 0px;
-} */
-
-/* .tableData {
-
-}
-.tableBody {
-
-}
-.mark {
-
-} */
-
-@media screen and (min-width: 768px) {
-  .table {
-    margin-left: 35px;
-  }
 }

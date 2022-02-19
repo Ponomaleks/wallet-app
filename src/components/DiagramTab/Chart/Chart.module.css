@@ -3,12 +3,15 @@
   width: 280px;
   height: 280px;
   flex-shrink: 0;
+  margin-bottom: 30px;
 }
 
 @media screen and (min-width: 768px) {
   .wrapper {
     width: 320px;
     height: 320px;
+    flex-basis: 50%;
+    flex-shrink: 0;
   }
 }
 
