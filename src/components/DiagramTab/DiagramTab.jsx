@@ -19,7 +19,9 @@ export default function DiagramTab() {
       <h2 className={s.header}>Statistics</h2>
       <div className={s.wrapper}>
         {statistics.length ? <Chart statistics={renderData}></Chart> : null}
-        <Table data={renderData}></Table>
+        <div className={s.tableWrapper}>
+          <Table data={renderData}></Table>
+        </div>
       </div>
     </div>
   );

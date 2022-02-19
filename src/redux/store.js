@@ -12,8 +12,11 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth';
 import transactionsReducer from './transactions';
-import {operationReducer} from './operations/operations-reducer';
-import {modalTransaction,modalOperation } from './operations/operations-reducer';
+import { operationReducer } from './operations/operations-reducer';
+import {
+  modalTransaction,
+  modalOperation,
+} from './operations/operations-reducer';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -38,7 +41,7 @@ export const store = configureStore({
     operations: operationReducer,
   },
   middleware,
-  devTools: process.env.NODE_ENV === 'development',
+  devTools: process.env.NODE_ENV === 'House',
 
   // middleware: getDefaultMiddleware => [
   //   ...getDefaultMiddleware({

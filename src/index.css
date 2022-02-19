@@ -63,6 +63,12 @@ body {
   padding: 0 20px;
 }
 
+@media screen and (max-width: 767px) {
+  #diagram .MuiFormControl-root {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .container {
     padding: 0 40px;

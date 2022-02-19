@@ -1,6 +1,4 @@
 .tab {
-  display: flex;
-  flex-direction: column;
   padding-left: 30px;
   width: 100%;
 }
@@ -19,11 +17,17 @@
   align-items: center;
   margin: 0 auto;
   width: 100%;
-  align-items: flex-start;
+  align-items: center;
+}
+
+.tableWrapper {
+  width: 100%;
+  max-width: 350px;
 }
 
 @media screen and (min-width: 768px) {
   .wrapper {
     flex-direction: row;
+    align-items: flex-start;
   }
 }
