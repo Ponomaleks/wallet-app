@@ -24,7 +24,7 @@ export default function Table({ data }) {
               </td>
               <td className={s.tableData}>
                 {formatNumber(amountTransaction, {
-                  precision: 3,
+                  precision: 2,
                   thousand: ' ',
                 })}
               </td>
@@ -36,7 +36,7 @@ export default function Table({ data }) {
             <th className={s.costs}>Costs:</th>
             <td className={s.costs_sum}>
               {formatNumber(costs, {
-                precision: 3,
+                precision: 2,
                 thousand: ' ',
               })}
             </td>
@@ -45,7 +45,7 @@ export default function Table({ data }) {
             <th className={s.income}>Income:</th>
             <td className={s.income_sum}>
               {formatNumber(income, {
-                precision: 3,
+                precision: 2,
                 thousand: ' ',
               })}
             </td>
