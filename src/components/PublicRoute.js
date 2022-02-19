@@ -6,12 +6,12 @@ import { authSelectors } from '../redux/auth';
 export default function PublicRoute({
   children,
   restricted = false,
-  redirectTo = '/login',
+  redirectTo = '/home',
   ...routeProps
 }) {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   const shouldRedirect = isLoggedIn && restricted;
-  return <div>{shouldRedirect ? <Navigate to={redirectTo} /> : children}</div>;
+  return shouldRedirect ? <Navigate to={redirectTo} /> : children;
   // return (
   //   <Route {...routeProps}>
   //     {shouldRedirect ? <Redirect to={redirectTo} /> : children}
