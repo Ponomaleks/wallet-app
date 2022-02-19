@@ -41,7 +41,7 @@ export const store = configureStore({
     operations: operationReducer,
   },
   middleware,
-  devTools: process.env.NODE_ENV === 'House',
+  devTools: process.env.NODE_ENV === 'development',
 
   // middleware: getDefaultMiddleware => [
   //   ...getDefaultMiddleware({
