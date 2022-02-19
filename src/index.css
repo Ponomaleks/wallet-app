@@ -2,7 +2,6 @@
 @import './stylesheet/vars.css';
 @import './stylesheet/fonts.css';
 
-/* Basic styles reset */
 h1,
 h2,
 h3,
@@ -51,7 +50,8 @@ button {
 body {
   font-family: 'Circe Regular';
   font-size: 16px;
-  background-color: var(--main-background);
+  background-color: #ffffff;
+  /* background-color: var(--main-background); */
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -70,12 +70,36 @@ body {
 }
 
 @media screen and (min-width: 768px) {
+  body {
+    background-color: #e7eaf2;
+    background-repeat: no-repeat;
+    background-image: url(./images/rouge-shape.svg);
+    background-position: top -150px right -260px;
+  }
+  body::after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 1px;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-image: url(./images/violet-shape.svg);
+    background-position: bottom -150px left -150px;
+    z-index: -1;
+  }
   .container {
     padding: 0 40px;
   }
 }
 
 @media screen and (min-width: 1280px) {
+  body {
+    background-position: top -150px right -150px;
+  }
+  body::after {
+    background-position: bottom -150px left -150px;
+  }
   .container {
     padding: 0 85px;
   }
