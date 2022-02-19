@@ -96,7 +96,7 @@ export default function Login() {
             <label className={Styles.authLabel}>
               <input
                 className={Styles.input}
-                placeholder="Пароль"
+                placeholder="Password"
                 onChange={handleChange}
                 name="password"
                 type="password"

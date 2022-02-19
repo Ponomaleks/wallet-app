@@ -51,11 +51,6 @@ p {
   bottom: 3px;
 }
 
-/* .authForm {
-  margin-left: 20px;
-  margin-right: 20px;
-} */
-
 .authLabel {
   position: relative;
   width: 280px;
@@ -112,9 +107,9 @@ p {
     margin-right: auto;
   }
 
-  .container {
+  /* .container {
     background-color: #ffffff;
-  }
+  } */
 }
 
 @media screen and (min-width: 768px) {
@@ -140,7 +135,7 @@ p {
     margin-left: 114px;
     width: 260px;
     height: 250px;
-    background-image: url(../../images/hero.svg);
+    background-image: url(../../images/login-img.svg);
     background-position: top 0px right 0px;
     background-repeat: no-repeat;
     background-size: contain;
@@ -227,7 +222,7 @@ p {
     margin-left: 76px;
     width: 435px;
     height: 420px;
-    background-image: url(../../images/hero.svg);
+    background-image: url(../../images/login-img.svg);
     background-position: top 0px right 0px;
     background-repeat: no-repeat;
     background-size: contain;
