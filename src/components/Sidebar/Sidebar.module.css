@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
   position: relative;
   padding: 10px 0 30px;
 }
@@ -13,6 +12,7 @@
     flex-direction: row;
     padding: 20px 0 40px;
     align-items: flex-end;
+    margin-bottom: 30px;
   }
 }
 

@@ -3,21 +3,24 @@
   width: 280px;
   height: 280px;
   flex-shrink: 0;
+  margin-bottom: 30px;
 }
 
 @media screen and (min-width: 768px) {
   .wrapper {
-    width: 350px;
-    height: 350px;
+    width: 320px;
+    height: 320px;
+    flex-basis: 50%;
+    flex-shrink: 0;
   }
 }
 
 .chart {
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
   position: absolute;
   overflow: visible;
-  z-index: 1000;
+  /* z-index: 1000; */
 }
 
 .total {

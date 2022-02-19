@@ -7,7 +7,7 @@ export default function DiagramView() {
   return (
     <>
       <Header />
-      <div className={`container ${s.diagramView}`}>
+      <div id="diagram" className={`container ${s.diagramView}`}>
         <Sidebar></Sidebar>
         <DiagramTab></DiagramTab>
       </div>

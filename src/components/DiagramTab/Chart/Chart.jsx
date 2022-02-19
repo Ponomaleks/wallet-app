@@ -24,7 +24,7 @@ export default function Chart({ statistics }) {
           '#24CCA7',
           '#00AD84',
         ],
-        cutout: 120,
+        cutout: '70%',
         borderWidth: 0,
         hoverOffset: 10,
         maintainAspectRatio: false,

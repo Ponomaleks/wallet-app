@@ -1,15 +1,13 @@
 .tab {
-  display: flex;
-  flex-direction: column;
-  padding-left: 30px;
   width: 100%;
 }
 
 .header {
   color: var(--dark-color);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins Bold', sans-serif;
   font-size: 30px;
-  line-height: 45px;
+  line-height: 1.5;
+  padding-top: 10px;
 }
 
 .wrapper {
@@ -19,11 +17,19 @@
   align-items: center;
   margin: 0 auto;
   width: 100%;
-  align-items: flex-start;
+  align-items: center;
+}
+
+.tableWrapper {
+  width: 100%;
 }
 
 @media screen and (min-width: 768px) {
   .wrapper {
     flex-direction: row;
+    align-items: flex-start;
+  }
+  .tab {
+    padding-left: 30px;
   }
 }
