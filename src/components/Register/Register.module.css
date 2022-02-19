@@ -149,6 +149,9 @@ p {
     margin-left: auto;
     margin-right: auto;
   }
+  /* .container {
+    background-color: #ffffff;
+  } */
 }
 
 @media screen and (min-width: 768px) {
@@ -174,7 +177,7 @@ p {
     margin-left: 114px;
     width: 260px;
     height: 250px;
-    background-image: url(../../images/hero.svg);
+    background-image: url(../../images/register-img.svg);
     background-position: top 0px right 0px;
     background-repeat: no-repeat;
     background-size: contain;
@@ -239,7 +242,6 @@ p {
     width: 540px;
     height: auto;
     margin-top: 52px;
-    /* margin-bottom: 116px; */
     margin-right: auto;
     margin-left: auto;
   }
@@ -261,7 +263,7 @@ p {
     margin-left: 76px;
     width: 435px;
     height: 420px;
-    background-image: url(../../images/hero.svg);
+    background-image: url(../../images/register-img.svg);
     background-position: top 0px right 0px;
     background-repeat: no-repeat;
     background-size: contain;
