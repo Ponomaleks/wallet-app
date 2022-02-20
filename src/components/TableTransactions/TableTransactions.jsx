@@ -18,6 +18,7 @@ import {
 
 import DeleteIcon from '@material-ui/icons/Delete';
 import formatNumber from '../../service/formatNumber';
+import WoobleHover from '../../helpers/WoobleAnimation';
 // import MocData from '../../devData.json';
 import './TableTransactions.module.css';
 
@@ -340,9 +341,11 @@ const TableTransactions = () => {
                       selected={isItemSelected}
                     >
                       <TableCell padding="checkbox">
-                        <IconButton aria-label="delete">
-                          <DeleteIcon />
-                        </IconButton>
+                        <WoobleHover rotation={20} timing={200}>
+                          <IconButton aria-label="delete">
+                            <DeleteIcon />
+                          </IconButton>
+                        </WoobleHover>
                       </TableCell>
                       <TableCell align="right">{row.date}</TableCell>
                       <TableCell align="center">
