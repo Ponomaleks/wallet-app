@@ -1,31 +1,32 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
-  // getAllTransactions,
+  getAllTransactions,
   fetchTransactions,
 } from '../../redux/transactions';
 import { CardTransaction } from './CardTransaction';
-import MocData from '../../devData.json';
+// import MocData from '../../devData.json';
 import './TableTransactionsMobile.module.css';
 
 const TableTransactionsMobile = () => {
-  // const { AllTransactions } = useSelector(getAllTransactions);
+  const AllTransactions = useSelector(getAllTransactions);
   const dispatch = useDispatch();
-  // const classes = useStyles();
 
   useEffect(() => {
     dispatch(fetchTransactions());
   }, [dispatch]);
 
   return (
-    <ul>
-      {MocData.map(transaction => (
-        <li key={transaction._id}>
-          <CardTransaction transaction={transaction} />
-        </li>
-      ))}
-    </ul>
+    AllTransactions && (
+      <ul>
+        {AllTransactions.map(transaction => (
+          <li key={transaction._id}>
+            <CardTransaction transaction={transaction} />
+          </li>
+        ))}
+      </ul>
+    )
   );
 };
 
