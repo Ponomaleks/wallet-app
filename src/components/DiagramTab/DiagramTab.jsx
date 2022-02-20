@@ -1,7 +1,7 @@
 import Chart from './Chart/Chart';
 import Table from './Table/Table';
 import s from './DiagramTab.module.css';
-import dates from '../../service/monthAndYear';
+// import dates from '../../service/monthAndYear';
 
 //=======test data
 import statistics from '../../devData.json';
