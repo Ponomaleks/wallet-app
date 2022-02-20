@@ -41,7 +41,15 @@ export default function Chart({ statistics }) {
           data={data}
           width={width}
           height={height}
-          options={{ maintainAspectRatio: false, responsive: true }}
+          options={{
+            maintainAspectRatio: false,
+            responsive: true,
+            layout: {
+              padding: {
+                bottom: 25,
+              },
+            },
+          }}
         />
         {{ total } ? (
           <span className={s.total}>

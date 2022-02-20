@@ -1,5 +1,4 @@
-import React, { Fragment } from 'react';
-import Media from 'react-media';
+import React from 'react';
 import s from './CurrencyView.module.css';
 import Currency from '../../components/Currency';
 import Header from '../../components/Header';
