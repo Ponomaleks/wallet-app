@@ -10,6 +10,7 @@ const fetchTransactions = createAsyncThunk(
     fetchTransactions.pending();
     try {
       const { data } = await axios.get('/transaction');
+
       console.log(data);
 
       return data;
@@ -19,19 +20,19 @@ const fetchTransactions = createAsyncThunk(
   },
 );
 
-const addTransaction = createAsyncThunk(
-  'transactions/addTransaction',
-  async transaction => {
-    addTransaction.pending();
-    try {
-      const { data } = await axios.post('/transactions', transaction);
-      console.log(data);
-      return data;
-    } catch (error) {
-      addTransaction.rejected(error);
-    }
-  },
-);
+// const addTransaction = createAsyncThunk(
+//   'transactions/addTransaction',
+//   async transaction => {
+//     addTransaction.pending();
+//     try {
+//       const { data } = await axios.post('/transactions', transaction);
+//       console.log(data);
+//       return data;
+//     } catch (error) {
+//       addTransaction.rejected(error);
+//     }
+//   },
+// );
 
 const deleteTransaction = createAsyncThunk(
   'transactions/deleteTransaction',
@@ -47,4 +48,4 @@ const deleteTransaction = createAsyncThunk(
   },
 );
 
-export { fetchTransactions, addTransaction, deleteTransaction };
+export { fetchTransactions, deleteTransaction };

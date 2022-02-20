@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardContent, Divider } from '@material-ui/core';
 
+import formatNumber from '../../service/formatNumber';
+
 const useStyles = makeStyles({
   root: {
     fontFamily: 'Circe-Regular',
@@ -94,14 +96,20 @@ const CardTransaction = ({ transaction }) => {
                 : classes.redText + ' ' + classes.value
             }
           >
-            {transaction.amountTransaction.toFixed(2)}
+            {formatNumber(transaction.amountTransaction, {
+              precision: 2,
+              thousand: ' ',
+            })}
           </span>
         </p>
         <Divider />
         <p className={classes.item}>
           <span className={classes.title}>Balance</span>
           <span className={classes.value}>
-            {transaction.balance.toFixed(2)}
+            {formatNumber(transaction.balance, {
+              precision: 2,
+              thousand: ' ',
+            })}
           </span>
         </p>
       </CardContent>
