@@ -191,7 +191,7 @@ EnhancedTableHead.propTypes = {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '100%',
+    width: '700px',
     '& > *': {
       margin: theme.spacing(1),
     },
@@ -199,13 +199,17 @@ const useStyles = makeStyles(theme => ({
     fontSize: '16px',
     lineHeight: 1.473,
     textTransform: 'none',
+    [theme.breakpoints.down(1280)]: {
+      width: '688px',
+    },
   },
-  paper: {
-    width: '100%',
-    marginBottom: theme.spacing(2),
-  },
+  // paper: {
+  //   width: '100%',
+  //   marginBottom: theme.spacing(2),
+  // },
   table: {
-    maxWidth: '688px',
+    // maxWidth: '688px',
+    // fontFamily: 'Circe Bold',
   },
   visuallyHidden: {
     border: 0,
@@ -226,7 +230,11 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 700,
     color: '#FF6596',
   },
-  // tableHeadItem: { fontSize: '18px', fontWeight: 700 },
+  // tableHeadItem: {
+  //   fontSize: '18px',
+  //   fontWeight: 700,
+  //   fontFamily: 'Circe Bold',
+  // },
   // tableHead: {
   //   fontSize: '18px',
   //   background: '#FFFFFF',
@@ -306,9 +314,9 @@ const TableTransactions = () => {
             size={dense ? 'small' : 'medium'}
             aria-label="enhanced table"
           >
-            {/* className={classes.tableHeadItem} */}
             <EnhancedTableHead
               classes={classes}
+              className={classes.tableHeadItem}
               numSelected={selected.length}
               order={order}
               orderBy={orderBy}
@@ -361,7 +369,7 @@ const TableTransactions = () => {
                       >
                         {row.amountTransaction}
                       </TableCell>
-                      <TableCell align="right">{row.balance}</TableCell>
+                      <TableCell align="center">{row.balance}</TableCell>
                     </TableRow>
                   );
                 })}
