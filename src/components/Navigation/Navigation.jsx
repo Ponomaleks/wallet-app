@@ -45,23 +45,6 @@ export default function Navigation() {
         <span>Statistics</span>
       </NavLink>
 
-      {/* <Media
-        queries={{
-          mobile: '(max-width: 767px)',
-        }}
-      >
-        {matches => (
-          <>
-            {matches.mobile && (
-              <Fragment>
-                <NavLink to="/currency" className={setActive}>
-                  <CurrencyIcon />
-                </NavLink>
-              </Fragment>
-            )}
-          </>
-        )}
-      </Media> */}
       <Media
         query="(max-width: 767px)"
         render={() => (
