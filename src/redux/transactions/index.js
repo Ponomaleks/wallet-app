@@ -1,13 +1,13 @@
 export { default } from './transactions-reducer';
 export {
   getAllTransactions,
-  getIncomeTransactions,
-  getExpensesTransactions,
-  // getBalance,
+  // getIncomeTransactions,
+  // getExpensesTransactions,
+  getBalance,
   getLoading,
 } from './transactions-selectors';
 export {
   fetchTransactions,
-  addTransaction,
+  // addTransaction,
   deleteTransaction,
 } from './transactions-operations';
