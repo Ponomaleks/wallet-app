@@ -60,8 +60,12 @@
   }
 }
 
-.icon_btn_logout:hover,
-.icon_btn_logout:focus {
+.btnLogout svg {
+  transition: transform 250ms var(--time-function);
+}
+
+.btnLogout svg:hover,
+.btnLogout svg:focus-within {
   transform: scale(1.2);
 }
 

@@ -77,3 +77,37 @@ td:not(:first-child) {
   text-align: left;
   padding-left: 30px;
 }
+
+/* SELECTS */
+
+.selectWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.yearSelect {
+  margin: 20px 0 0;
+}
+
+.selectWrapper select {
+  width: 100%;
+  background-color: transparent;
+  height: 50px;
+  border-radius: 30px;
+  font-family: 'Circe Regular';
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 0 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .selectWrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .yearSelect {
+    margin: 0 0 0 20px;
+  }
+}

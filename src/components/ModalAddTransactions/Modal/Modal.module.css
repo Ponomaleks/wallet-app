@@ -1,13 +1,13 @@
-.box{
-    position: absolute;
-    width: 320px;
-    background: var(--light-color);
-    display: flex;
-    font-size: 40px;
-    border-style: none;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 43px;
+.box {
+  position: absolute;
+  width: 320px;
+  background: var(--light-color);
+  display: flex;
+  font-size: 40px;
+  border-style: none;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 43px;
 }
 
 .button {
@@ -21,42 +21,44 @@
   bottom: 40px;
   padding: 0;
   display: block;
+  transition: transform 250ms var(--time-function);
   background-color: var(--green-color);
-  }
-  
-  @media screen and (min-width: 540px) {
-    .box {
-      width: 540px;
-      border-radius: 20px;
-      padding-bottom: 60px;
-    }
-    .button{
-      right: 40px;
-    }
-    .leader{
-      font-size: 30px;
-      line-height: 45px;
-    }
-  }
+}
 
+.button:hover,
+.button:focus-within {
+  transform: scale(1.2);
+}
 
-  @media screen and (min-width: 1280px) {
-    .button{
-      right: 100px;
-    }
+@media screen and (min-width: 540px) {
+  .box {
+    width: 540px;
+    border-radius: 20px;
+    padding-bottom: 60px;
   }
+  .button {
+    right: 40px;
+  }
+  .leader {
+    font-size: 30px;
+    line-height: 45px;
+  }
+}
 
-  .buttonIcon {
-    position: absolute;
-    top:3px;
-    left: 5px;
-    color: var(--light-color);
-    cursor: pointer;
+@media screen and (min-width: 1280px) {
+  .button {
+    right: 100px;
   }
-  
-  .button:hover {
-    transform: scale(1.1);
-  
-  }
+}
 
-  
+.buttonIcon {
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  color: var(--light-color);
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}

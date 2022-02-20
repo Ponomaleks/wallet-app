@@ -7,6 +7,17 @@ const income = '1000000';
 export default function Table({ data }) {
   return (
     <>
+      <div className={s.selectWrapper}>
+        <select className={s.monthSelect}>
+          <option value="Month">Month</option>
+          <option value="fff">sdf</option>
+        </select>
+        <select className={s.yearSelect}>
+          <option value="Year">Year</option>
+          <option value="fff">gerg</option>
+        </select>
+      </div>
+
       <table className={s.table}>
         <thead className={s.tableHead}>
           <tr>
