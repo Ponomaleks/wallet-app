@@ -1,4 +1,7 @@
+import React, { Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
+import Media from 'react-media';
+import { ReactComponent as CurrencyIcon } from './currency.svg';
 import s from './Navigation.module.css';
 
 const setActive = ({ isActive }) => {
@@ -41,6 +44,17 @@ export default function Navigation() {
         </svg>
         <span>Statistics</span>
       </NavLink>
+
+      <Media
+        query="(max-width: 767px)"
+        render={() => (
+          <>
+            <NavLink to="/currency" className={setActive}>
+              <CurrencyIcon />
+            </NavLink>
+          </>
+        )}
+      />
     </nav>
   );
 }
