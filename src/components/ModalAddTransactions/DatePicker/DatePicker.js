@@ -54,7 +54,7 @@ export default function LocalizedDatePicker() {
           ))}
         </ToggleButtonGroup> */}
         <DatePicker
-          mask={maskMap[locale]}
+          format={maskMap[locale]}
           value={value}
           onChange={newValue => setValue(newValue)}
           renderInput={params => <TextField {...params} />}
