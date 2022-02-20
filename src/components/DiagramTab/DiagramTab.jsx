@@ -1,13 +1,15 @@
 import Chart from './Chart/Chart';
 import Table from './Table/Table';
 import s from './DiagramTab.module.css';
+// import dates from '../../service/monthAndYear';
 
 //=======test data
 import statistics from '../../devData.json';
+
 //========
 const renderData = [];
 for (const item of statistics) {
-  if (item.typeTransaction) {
+  if (item.typeTransaction !== '-') {
     continue;
   }
   renderData.push(item);

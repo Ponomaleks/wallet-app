@@ -1,20 +1,29 @@
 import formatNumber from '../../../service/formatNumber';
+import dates from '../../../service/monthAndYear';
 import s from './Table.module.css';
 
 const costs = '1000000';
 const income = '1000000';
 
+const { currentYear, currentMonth, months, years } = dates;
+
 export default function Table({ data }) {
   return (
     <>
       <div className={s.selectWrapper}>
-        <select className={s.monthSelect}>
-          <option value="Month">Month</option>
-          <option value="fff">sdf</option>
+        <select className={s.monthSelect} defaultValue={currentMonth}>
+          {months.map(el => (
+            <option key={el} value={el}>
+              {el}
+            </option>
+          ))}
         </select>
-        <select className={s.yearSelect}>
-          <option value="Year">Year</option>
-          <option value="fff">gerg</option>
+        <select className={s.yearSelect} defaultValue={currentYear}>
+          {years.map(el => (
+            <option key={el} value={el}>
+              {el}
+            </option>
+          ))}
         </select>
       </div>
 

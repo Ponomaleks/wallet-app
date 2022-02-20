@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "62124576e3e698a82da43cae",
+    "date": "03",
+    "year": 2022,
+    "month": 2,
+    "typeTransaction": "-",
+    "category": "Car",
+    "commentary": "buy some gas",
+    "amountTransaction": 100,
+    "owner": "62124513e3e698a82da43c9e",
+    "__v": 0
+  },
+  {
+    "_id": "621247d0e3e698a82da43cb6",
+    "date": "03",
+    "year": 2022,
+    "month": 2,
+    "typeTransaction": "-",
+    "category": "Education",
+    "commentary": "Need some brain",
+    "amountTransaction": 5000,
+    "owner": "62124513e3e698a82da43c9e",
+    "__v": 0
+  },
+  {
+    "_id": "621247fde3e698a82da43cba",
+    "date": "02",
+    "year": 2022,
+    "month": 2,
+    "typeTransaction": "+",
+    "category": "Irregular income",
+    "commentary": "robbed a bank",
+    "amountTransaction": 500000,
+    "owner": "62124513e3e698a82da43c9e",
+    "__v": 0
+  },
+  {
+    "_id": "6212484ae3e698a82da43cbe",
+    "date": "02.03.2022",
+    "year": 2022,
+    "month": 3,
+    "typeTransaction": "-",
+    "category": "House",
+    "commentary": "home, sweet home",
+    "amountTransaction": 500000,
+    "owner": "62124513e3e698a82da43c9e",
+    "__v": 0
+  }
+]
