@@ -11,6 +11,7 @@ import DiagramView from '../views/DiagramView';
 import HomeView from '../views/HomeView/HomeView';
 import RegisterView from '../views/RegisterView';
 import LoginView from '../views/LoginView';
+import CurrencyView from '../views/CurrencyView/CurrencyView';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,6 +19,11 @@ import 'react-toastify/dist/ReactToastify.css';
 const NotFoundView = lazy(() =>
   import('../views/NotFoundView' /* webpackChunkName: "404-page" */),
 );
+// const CurrencyView = lazy(() =>
+//   import(
+//     '../views/CurrencyView/CurrencyView' /* webpackChunkName: "currency-page" */
+//   ),
+// );
 
 function App() {
   const dispatch = useDispatch();
@@ -76,6 +82,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <DiagramView />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/currency"
+              element={
+                <PrivateRoute>
+                  <CurrencyView />
                 </PrivateRoute>
               }
             />
