@@ -2,12 +2,14 @@ import formatNumber from '../../../service/formatNumber';
 import dates from '../../../service/monthAndYear';
 import s from './Table.module.css';
 
-const costs = '1000000';
 const income = '1000000';
 
 const { currentYear, currentMonth, months, years } = dates;
 
 export default function Table({ data }) {
+  const dataArr = data.map(el => Number(el.amountTransaction));
+  const costs = dataArr.reduce((a, b) => b + a);
+
   return (
     <>
       <div className={s.selectWrapper}>
@@ -17,6 +19,9 @@ export default function Table({ data }) {
               {el}
             </option>
           ))}
+          {/* <option key="full" value="full">
+            Full year
+          </option> */}
         </select>
         <select className={s.yearSelect} defaultValue={currentYear}>
           {years.map(el => (
@@ -24,6 +29,9 @@ export default function Table({ data }) {
               {el}
             </option>
           ))}
+          {/* <option key="full" value="full">
+            All years
+          </option> */}
         </select>
       </div>
 

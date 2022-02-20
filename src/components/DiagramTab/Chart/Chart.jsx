@@ -8,7 +8,7 @@ export default function Chart({ statistics }) {
   const width = 320;
   const height = 320;
 
-  const dataArr = statistics.map(el => Number(el.amountTransaction)); // уточнить формат данніх в базе (числа/строки)
+  const dataArr = statistics.map(el => Number(el.amountTransaction));
   const total = dataArr.reduce((a, b) => b + a);
   const data = {
     datasets: [
@@ -56,6 +56,3 @@ export default function Chart({ statistics }) {
     </>
   );
 }
-
-// идеи *
-// можно закрепить цвет за каждой категорией (хранить не в БД, а в привязке к DiagramTab, т.к. цвета отображаются только в этом элементе)
