@@ -7,15 +7,14 @@ import { useDispatch } from 'react-redux';
 import s from './Transactions.module.css';
 import ButtonSwitch from '../ButtonSwitch/ButtonSwitch';
 import Buttons from '../Buttons/Buttons';
-import UnstyledSelectCustomRenderValueIncome from '../SelectIncome/SelectIncome';
-import UnstyledSelectCustomRenderValueExpense from '../SelectExpense/SelectExpense';
+import SelectIncome from '../SelectIncome/SelectIncome';
+import SelectExpense from '../SelectExpense/SelectExpense';
 import LocalizedDatePicker from '../DatePicker/DatePicker';
 import svg from '../../../images/modal-close-icon.svg';
 import {
   operationsOperation,
   operationsAction,
 } from '../../../redux/operations';
-
 
 const operationSchema = Yup.object({
   amount: Yup.number('Enter your amount').required('Amount is required'),
@@ -28,7 +27,6 @@ const operationSchema = Yup.object({
     then: Yup.string().required('Category is required'),
   }),
 });
-
 
 ///////////////////////////////////////
 
@@ -142,37 +140,29 @@ const Transactions = props => {
 
   return (
     <>
-      <button
-            className={s.closeButton}
-            type="button"
-            onClick={closeModal}
-            >
-              <img src={svg} alt="" />
-            </button>
+      <button className={s.closeButton} type="button" onClick={closeModal}>
+        <img src={svg} alt="" />
+      </button>
       <div>
         <form className={s.form} onSubmit={formik.handleSubmit}>
           <h2 className={s.leader}>Add transaction</h2>
 
-          <ButtonSwitch 
+          <ButtonSwitch
             name="checked"
             value={formik.values.checked}
             changeSwitch={formik.setFieldValue}
           />
 
-          {formik.values.checked ? (
-            <UnstyledSelectCustomRenderValueExpense/>
-          ):(
-            <UnstyledSelectCustomRenderValueIncome/>
-          )}
+          {formik.values.checked ? <SelectExpense /> : <SelectIncome />}
 
           <LocalizedDatePicker />
           <input name="sumTransaction" placeholder="0.00" type="number" />
-          <input name="commentTransaction" placeholder="Comment" type="text"/>
+          <input name="commentTransaction" placeholder="Comment" type="text" />
           <Buttons />
         </form>
       </div>
     </>
   );
-}
+};
 
 export default Transactions;
