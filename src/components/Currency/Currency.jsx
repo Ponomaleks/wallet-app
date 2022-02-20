@@ -37,7 +37,6 @@ export default function Currency() {
 
       if (isMounted) {
         loadCurrencyData();
-        console.log('Date settled and fetch made now');
       }
     }
 
