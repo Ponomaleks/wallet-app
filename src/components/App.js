@@ -18,6 +18,11 @@ import 'react-toastify/dist/ReactToastify.css';
 const NotFoundView = lazy(() =>
   import('../views/NotFoundView' /* webpackChunkName: "404-page" */),
 );
+const CurrencyView = lazy(() =>
+  import(
+    '../views/CurrencyView/CurrencyView' /* webpackChunkName: "currency-page" */
+  ),
+);
 
 function App() {
   const dispatch = useDispatch();
@@ -76,6 +81,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <DiagramView />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/currency"
+              element={
+                <PrivateRoute>
+                  <CurrencyView />
                 </PrivateRoute>
               }
             />

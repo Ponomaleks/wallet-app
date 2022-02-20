@@ -1,7 +1,6 @@
 .header_container {
   display: flex;
   align-items: center;
-  margin-right: 45px;
 }
 .img_container {
   margin-right: 10px;
@@ -14,9 +13,20 @@
   font-weight: normal;
   line-height: 26px;
 }
+@media screen and (max-width: 767px) {
+  .user_name_text {
+    margin-right: 10px;
+  }
+  .img_container {
+    visibility: hidden;
+  }
+}
 @media screen and (min-width: 768px) {
   .user_name_text {
     padding-right: 15px;
+  }
+  .header_container {
+    margin-right: 45px;
   }
 }
 
