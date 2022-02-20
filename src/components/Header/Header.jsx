@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <>
       <header className={s.header}>
-        <NavLink exact to="/home" className={s.home_link}>
+        <NavLink to="/home" className={s.home_link}>
           <Logo />
         </NavLink>
         <UserMenu />
