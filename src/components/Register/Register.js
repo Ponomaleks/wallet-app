@@ -197,7 +197,7 @@ export default function Register() {
             </button>
             <Link to="/login" className={Styles.authLink}>
               <button className={Styles.logBtn} type="submit">
-                enter
+                login
               </button>
             </Link>
           </form>
