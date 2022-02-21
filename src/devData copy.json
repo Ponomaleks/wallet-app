@@ -147,5 +147,18 @@
     "balance": 2000,
     "owner": "62124513e3e698a82da43c9e",
     "__v": 0
+  },
+  {
+    "_id": "6212ac119ef0f861f23510df",
+    "date": "16338784",
+    "year": 2021,
+    "month": 1,
+    "typeTransaction": "-",
+    "category": "House",
+    "commentary": "Sallary per month",
+    "amountTransaction": 1000,
+    "balance": 2000,
+    "owner": "62124513e3e698a82da43c9e",
+    "__v": 0
   }
 ]
