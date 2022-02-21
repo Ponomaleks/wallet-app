@@ -1,9 +1,10 @@
 import React from 'react';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-// import { getBalance } from '../../redux/transactions';
+import { getBalance } from '../../redux/transactions';
+import formatNumber from '../../service/formatNumber';
 import './Balance.module.css';
 
 const useStylesReddit = makeStyles(theme => ({
@@ -43,24 +44,20 @@ const useStylesReddit = makeStyles(theme => ({
 }));
 
 const Balance = () => {
-  // const theme = createTheme({
-  //   breakpoints: {
-  //     values: {
-  //       mobile: 0,
-  //       tablet: 768,
-  //       desktop: 1280,
-  //     },
-  //   },
-  // });
-
   const classes = useStylesReddit();
-  // const { balance } = useSelector(getBalance);
+  const balance = formatNumber(useSelector(getBalance), {
+    precision: 2,
+    thousand: ' ',
+  });
+
+  console.log(balance);
 
   return (
     <TextField
       label="your balance"
       id="outlined-read-only-input"
-      defaultValue="₴ 0.00" /* ₴ {balance.toFixed(2)} */
+      defaultValue="₴ 0.00"
+      // "₴ {balance}"
       InputProps={{
         readOnly: true,
         classes,

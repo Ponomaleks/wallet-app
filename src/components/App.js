@@ -5,27 +5,32 @@ import { authOperations } from '../redux/auth';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer, Zoom } from 'react-toastify';
 import { Triangle } from 'react-loader-spinner';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import DiagramView from '../views/DiagramView';
 import HomeView from '../views/HomeView/HomeView';
 import RegisterView from '../views/RegisterView';
 import LoginView from '../views/LoginView';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 // lazy-loading pages:
 const NotFoundView = lazy(() =>
   import('../views/NotFoundView' /* webpackChunkName: "404-page" */),
 );
+const CurrencyView = lazy(() =>
+  import(
+    '../views/CurrencyView/CurrencyView' /* webpackChunkName: "currency-page" */
+  ),
+);
 
 function App() {
   const dispatch = useDispatch();
-  const isFatchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
+  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
   useEffect(() => dispatch(authOperations.fetchCurrentUser()), [dispatch]);
   return (
-    !isFatchingCurrentUser && (
+    !isFetchingCurrentUser && (
       <>
         <Suspense
           fallback={
@@ -76,6 +81,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <DiagramView />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/currency"
+              element={
+                <PrivateRoute>
+                  <CurrencyView />
                 </PrivateRoute>
               }
             />

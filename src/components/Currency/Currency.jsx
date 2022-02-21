@@ -37,7 +37,6 @@ export default function Currency() {
 
       if (isMounted) {
         loadCurrencyData();
-        console.log('Date settled and fetch made now');
       }
     }
 
@@ -134,9 +133,9 @@ export default function Currency() {
     <>
       {loading && (
         <Triangle
-          height="200"
-          width="200"
-          color="#ff6596"
+          height="100"
+          width="100"
+          color="#FF6596"
           ariaLabel="loading"
           className={s.loader}
         />

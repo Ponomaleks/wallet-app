@@ -56,6 +56,14 @@ td:not(:first-child) {
   font-weight: bold;
 }
 
+.mark {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+  vertical-align: middle;
+}
+
 .costs_sum {
   color: var(--costs);
   padding-top: 15px;
@@ -76,4 +84,38 @@ td:not(:first-child) {
 .tableFooter th {
   text-align: left;
   padding-left: 30px;
+}
+
+/* SELECTS */
+
+.selectWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.yearSelect {
+  margin: 20px 0 0;
+}
+
+.selectWrapper select {
+  width: 100%;
+  background-color: transparent;
+  height: 50px;
+  border-radius: 30px;
+  font-family: 'Circe Regular';
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 0 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .selectWrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .yearSelect {
+    margin: 0 0 0 20px;
+  }
 }

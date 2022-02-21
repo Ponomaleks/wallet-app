@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import { styled } from '@mui/material/styles';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Checkbox,
@@ -14,7 +15,10 @@ import {
   TableRow,
   TableSortLabel,
 } from '@material-ui/core';
+
 import DeleteIcon from '@material-ui/icons/Delete';
+import formatNumber from '../../service/formatNumber';
+import WoobleHover from '../../helpers/WoobleAnimation';
 // import MocData from '../../devData.json';
 import './TableTransactions.module.css';
 
@@ -191,7 +195,7 @@ EnhancedTableHead.propTypes = {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '100%',
+    width: '700px',
     '& > *': {
       margin: theme.spacing(1),
     },
@@ -199,13 +203,22 @@ const useStyles = makeStyles(theme => ({
     fontSize: '16px',
     lineHeight: 1.473,
     textTransform: 'none',
+    [theme.breakpoints.down(1280)]: {
+      width: '688px',
+    },
   },
   paper: {
     width: '100%',
-    marginBottom: theme.spacing(2),
+    borderRadius: '30px',
   },
   table: {
-    maxWidth: '688px',
+    width: '688px',
+    '&:first-child td': {
+      paddingLeft: '4px',
+      // border: 0,
+      // fontSize: '18px',
+      // fontFamily: 'Circe Bold',
+    },
   },
   visuallyHidden: {
     border: 0,
@@ -226,12 +239,6 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 700,
     color: '#FF6596',
   },
-  // tableHeadItem: { fontSize: '18px', fontWeight: 700 },
-  // tableHead: {
-  //   fontSize: '18px',
-  //   background: '#FFFFFF',
-  //   borderRadius: '30px',
-  // },
 }));
 
 const TableTransactions = () => {
@@ -306,7 +313,6 @@ const TableTransactions = () => {
             size={dense ? 'small' : 'medium'}
             aria-label="enhanced table"
           >
-            {/* className={classes.tableHeadItem} */}
             <EnhancedTableHead
               classes={classes}
               numSelected={selected.length}
@@ -316,6 +322,7 @@ const TableTransactions = () => {
               onRequestSort={handleRequestSort}
               rowCount={rows.length}
             />
+
             <TableBody>
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -334,9 +341,11 @@ const TableTransactions = () => {
                       selected={isItemSelected}
                     >
                       <TableCell padding="checkbox">
-                        <IconButton aria-label="delete">
-                          <DeleteIcon />
-                        </IconButton>
+                        <WoobleHover rotation={20} timing={200}>
+                          <IconButton aria-label="delete">
+                            <DeleteIcon />
+                          </IconButton>
+                        </WoobleHover>
                       </TableCell>
                       <TableCell align="right">{row.date}</TableCell>
                       <TableCell align="center">
@@ -359,9 +368,18 @@ const TableTransactions = () => {
                             : classes.redText + ' ' + classes.value
                         }
                       >
-                        {row.amountTransaction}
+                        {' '}
+                        {formatNumber(row.amountTransaction, {
+                          precision: 2,
+                          thousand: ' ',
+                        })}
                       </TableCell>
-                      <TableCell align="right">{row.balance}</TableCell>
+                      <TableCell align="center">
+                        {formatNumber(row.balance, {
+                          precision: 2,
+                          thousand: ' ',
+                        })}
+                      </TableCell>
                     </TableRow>
                   );
                 })}

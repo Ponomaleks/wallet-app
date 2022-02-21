@@ -16,9 +16,13 @@
 }
 
 .viewNavigation svg {
-  width: 18px;
-  height: 18px;
+  width: 38px;
+  height: 38px;
   fill: var(--blue-color);
+}
+
+.viewNavigation svg ~ span {
+  display: none;
 }
 
 .viewNavigation .active {
@@ -35,8 +39,13 @@
     margin-bottom: 20px;
   }
   .viewNavigation svg {
+    width: 18px;
+    height: 18px;
     margin-right: 23px;
     filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+  }
+  .viewNavigation svg ~ span {
+    display: block;
   }
 
   .viewNavigation a:not(:last-child) {
