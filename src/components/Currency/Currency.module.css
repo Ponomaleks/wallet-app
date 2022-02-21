@@ -1,5 +1,9 @@
 /* ! ========= Currency component styles ======== */
 
+.curContainer {
+  position: relative;
+}
+
 .tableWrapper {
   position: relative;
   width: 280px;
@@ -59,13 +63,6 @@
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
-}
-
-.loader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 @media screen and (min-width: 320px) {

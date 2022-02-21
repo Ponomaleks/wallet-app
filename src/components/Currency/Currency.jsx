@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Triangle } from 'react-loader-spinner';
+import { BallTriangle } from 'react-loader-spinner';
 import { toast } from 'react-toastify';
 import { fetchCurrency } from '../../service/getCurrency';
 import { ReactComponent as Waves } from './waves.svg';
@@ -20,13 +20,18 @@ export default function Currency() {
 
   useEffect(() => {
     let isMounted = true;
+    setLoading(true);
     const lastFetched = JSON.parse(localStorage.getItem('currencyFetchTime'));
     const localUSDCurrencyData = JSON.parse(localStorage.getItem('USD'));
     const localEURCurrencyData = JSON.parse(localStorage.getItem('EUR'));
     const localRUBCurrencyData = JSON.parse(localStorage.getItem('RUB'));
 
     if (!lastFetched && !localUSDCurrencyData) {
-      loadCurrencyData();
+      setTimeout(() => {
+        setLoading(true);
+        loadCurrencyData();
+        setLoading(false);
+      }, 1000);
     }
 
     const oneHour = 60 * 60000;
@@ -36,7 +41,11 @@ export default function Currency() {
       localStorage.setItem('currencyFetchTime', JSON.stringify(Date.now()));
 
       if (isMounted) {
-        loadCurrencyData();
+        setTimeout(() => {
+          setLoading(true);
+          loadCurrencyData();
+          setLoading(false);
+        }, 1000);
       }
     }
 
@@ -130,14 +139,13 @@ export default function Currency() {
   };
 
   return (
-    <>
+    <div className={s.curContainer}>
       {loading && (
-        <Triangle
+        <BallTriangle
           height="100"
           width="100"
           color="#FF6596"
           ariaLabel="loading"
-          className={s.loader}
         />
       )}
       <div className={s.tableWrapper}>
@@ -182,6 +190,6 @@ export default function Currency() {
         </table>
         <Waves className={s.waves} />
       </div>
-    </>
+    </div>
   );
 }
