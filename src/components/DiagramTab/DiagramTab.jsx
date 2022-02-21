@@ -9,7 +9,8 @@ import { costCategories } from '../../service/categoriesList';
 //=======test data
 import statistics from '../../devData copy.json';
 //========
-const { currentYear, currentMonth, months, years } = dates;
+
+const { currentYear, currentMonth, months } = dates;
 
 function getIncome(month, year) {
   return statistics.reduce((acc, el) => {
@@ -70,13 +71,30 @@ export default function DiagramTab() {
   const [income, setIncome] = useState(currentMonthIncomeSum);
   const [filteredData, setFilteredData] = useState(currentMonthCostsArr);
 
+  const handleChangeYear = ({ target: { value } }) => {
+    setYear(Number(value));
+  };
+  const handleChangeMonth = ({ target: { value } }) => {
+    setMonth(value);
+  };
+
+  useEffect(() => {
+    setFilteredData(prepareData(statistics, month, year));
+    setIncome(getIncome(month, year));
+  }, [month, year]);
+
   return (
     <div className={s.tab}>
       <h2 className={s.header}>Statistics</h2>
       <div className={s.wrapper}>
         {filteredData.length ? <Chart statistics={filteredData}></Chart> : null}
         <div className={s.tableWrapper}>
-          <Table data={filteredData} income={income}></Table>
+          <Table
+            data={filteredData}
+            income={income}
+            handleChangeMonth={handleChangeMonth}
+            handleChangeYear={handleChangeYear}
+          ></Table>
         </div>
       </div>
     </div>
@@ -84,6 +102,6 @@ export default function DiagramTab() {
 }
 
 // идеи *
-// можно сделать радиобатон и выодить статистику по расходам/доходам (но нужно больше категорий дохода)
+// можно сделать радиобатон и выводить статистику по расходам/доходам (но нужно больше категорий дохода)
 // можно закрепить цвет за каждой категорией (хранить не в БД, а в привязке к DiagramTab, т.к. цвета отображаются только в этом элементе)
 // можно добавить функционал добавления категорий (создать категорию, добавить цвет, отправить в БД, сохранить в state, добавить options в модалку (убрать валидацию по списку категорий а БД))
