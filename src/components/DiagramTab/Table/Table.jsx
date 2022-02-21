@@ -4,7 +4,12 @@ import s from './Table.module.css';
 
 const { currentYear, currentMonth, months, years } = dates;
 
-export default function Table({ data, income = 0 }) {
+export default function Table({
+  data,
+  income = 0,
+  handleChangeMonth,
+  handleChangeYear,
+}) {
   const costs = data.reduce((acc, curr) => {
     return acc + curr.sum;
   }, 0);
@@ -12,7 +17,11 @@ export default function Table({ data, income = 0 }) {
   return (
     <>
       <div className={s.selectWrapper}>
-        <select className={s.monthSelect} defaultValue={currentMonth}>
+        <select
+          onChange={handleChangeMonth}
+          className={s.monthSelect}
+          defaultValue={currentMonth}
+        >
           {months.map(el => (
             <option key={el} value={el}>
               {el}
@@ -22,7 +31,11 @@ export default function Table({ data, income = 0 }) {
             Full year
           </option> */}
         </select>
-        <select className={s.yearSelect} defaultValue={currentYear}>
+        <select
+          onChange={handleChangeYear}
+          className={s.yearSelect}
+          defaultValue={currentYear}
+        >
           {years.map(el => (
             <option key={el} value={el}>
               {el}
