@@ -39,6 +39,7 @@ p {
   border-right: none;
   border-bottom: 0.5px, solid;
   border-color: #e7eaf2;
+  outline: none;
 }
 
 ::placeholder {
@@ -192,7 +193,6 @@ p {
     width: 410px;
     margin-top: 20px;
     margin-bottom: 20px;
-    outline: none;
   }
   .form {
     margin-left: 65px;
