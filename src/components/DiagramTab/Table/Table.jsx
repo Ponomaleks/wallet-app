@@ -2,13 +2,12 @@ import formatNumber from '../../../service/formatNumber';
 import dates from '../../../service/monthAndYear';
 import s from './Table.module.css';
 
-const income = '1000000';
-
 const { currentYear, currentMonth, months, years } = dates;
 
-export default function Table({ data }) {
-  const dataArr = data.map(el => Number(el.amountTransaction));
-  const costs = dataArr.reduce((a, b) => b + a);
+export default function Table({ data, income = 0 }) {
+  const costs = data.reduce((acc, curr) => {
+    return acc + curr.sum;
+  }, 0);
 
   return (
     <>
@@ -43,21 +42,30 @@ export default function Table({ data }) {
           </tr>
         </thead>
         <tbody className={s.tableBody}>
-          {data.map(({ category, amountTransaction, _id }) => (
-            <tr key={_id}>
-              <td className={s.tableData}>
-                {/* <span className={s.mark} style={{ backgroundColor: color }}></span> */}
+          {data.length ? (
+            data.map(({ category, sum, color, _id }, id) => (
+              <tr key={id}>
+                <td className={s.tableData}>
+                  <span
+                    className={s.mark}
+                    style={{ backgroundColor: color }}
+                  ></span>
 
-                {category}
-              </td>
-              <td className={s.tableData}>
-                {formatNumber(amountTransaction, {
-                  precision: 2,
-                  thousand: ' ',
-                })}
-              </td>
+                  {category}
+                </td>
+                <td className={s.tableData}>
+                  {formatNumber(sum, {
+                    precision: 2,
+                    thousand: ' ',
+                  })}
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td className={s.tableData}>No cost data for this period</td>
             </tr>
-          ))}
+          )}
         </tbody>
         <tfoot className={s.tableFooter}>
           <tr>

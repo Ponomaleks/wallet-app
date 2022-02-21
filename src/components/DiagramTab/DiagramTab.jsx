@@ -4,51 +4,79 @@ import Chart from './Chart/Chart';
 import Table from './Table/Table';
 
 import dates from '../../service/monthAndYear';
+import { costCategories } from '../../service/categoriesList';
 
 //=======test data
 import statistics from '../../devData copy.json';
+//========
 const { currentYear, currentMonth, months, years } = dates;
 
-//========
+function getIncome(month, year) {
+  return statistics.reduce((acc, el) => {
+    if (
+      el.typeTransaction === '+' &&
+      el.month === months.indexOf(month) + 1 &&
+      el.year === year
+    ) {
+      return acc + el.amountTransaction;
+    }
+    return acc;
+  }, 0);
+}
 
-const currentMonthCosts = statistics.filter(el => {
-  return (
-    el.typeTransaction === '-' &&
-    el.month === months.indexOf(currentMonth) + 1 &&
-    el.year === currentYear
-  );
-});
+function filterByDate(data, month, year) {
+  return data.filter(el => {
+    return (
+      el.typeTransaction === '-' &&
+      el.month === months.indexOf(month) + 1 &&
+      el.year === year
+    );
+  });
+}
 
-const currentMonthIncomeSum = statistics.reduce((acc, curr) => {
-  if (curr.typeTransaction === '+') {
-    return acc + curr.amountTransaction;
+function formatForRender(filteredData) {
+  const result = [];
+  for (const category of costCategories) {
+    const { value, color } = category;
+
+    const categorySum = filteredData.reduce(
+      (acc, curr) => {
+        if (curr.category === value) {
+          acc.category = value;
+          acc.sum = acc.sum + curr.amountTransaction;
+        }
+
+        return acc;
+      },
+      { category: '', sum: 0, color: color },
+    );
+    if (categorySum.category !== '') {
+      result.push(categorySum);
+    }
   }
-  return acc;
-}, 0);
+  return result;
+}
 
-console.log(currentMonthIncomeSum);
+function prepareData(data, month, year) {
+  return formatForRender(filterByDate(data, month, year));
+}
 
-// const renderData = [];
-// for (const item of statistics) {
-//   if (item.typeTransaction !== '-') {
-//     continue;
-//   }
-//   renderData.push(item);
-// }
+const currentMonthIncomeSum = getIncome(currentMonth, currentYear);
+const currentMonthCostsArr = prepareData(statistics, currentMonth, currentYear);
 
 export default function DiagramTab() {
   const [month, setMonth] = useState(currentMonth);
   const [year, setYear] = useState(currentYear);
-  const [income, setIncome] = useState(0);
-  const [filteredData, setFilteredData] = useState(currentMonthCosts);
+  const [income, setIncome] = useState(currentMonthIncomeSum);
+  const [filteredData, setFilteredData] = useState(currentMonthCostsArr);
 
   return (
     <div className={s.tab}>
       <h2 className={s.header}>Statistics</h2>
       <div className={s.wrapper}>
-        {statistics.length ? <Chart statistics={filteredData}></Chart> : null}
+        {filteredData.length ? <Chart statistics={filteredData}></Chart> : null}
         <div className={s.tableWrapper}>
-          <Table data={filteredData}></Table>
+          <Table data={filteredData} income={income}></Table>
         </div>
       </div>
     </div>

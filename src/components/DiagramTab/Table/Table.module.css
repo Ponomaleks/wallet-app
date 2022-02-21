@@ -56,6 +56,14 @@ td:not(:first-child) {
   font-weight: bold;
 }
 
+.mark {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+  vertical-align: middle;
+}
+
 .costs_sum {
   color: var(--costs);
   padding-top: 15px;
