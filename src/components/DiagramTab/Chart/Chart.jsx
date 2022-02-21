@@ -8,29 +8,24 @@ export default function Chart({ statistics }) {
   const width = 320;
   const height = 320;
 
-  const dataArr = statistics.map(el => Number(el.amountTransaction)); // уточнить формат данніх в базе (числа/строки)
+  const dataArr = statistics.map(({ sum }) => sum);
+  const backgroundColor = statistics.map(({ color }) => color);
+  const label = statistics.map(({ category }) => category);
+
   const total = dataArr.reduce((a, b) => b + a);
   const data = {
     datasets: [
       {
         data: dataArr,
-        backgroundColor: [
-          '#FED057',
-          '#FFD8D0',
-          '#FD9498',
-          '#C5BAFF',
-          '#6E78E8',
-          '#4A56E2',
-          '#81E1FF',
-          '#24CCA7',
-          '#00AD84',
-        ],
+        backgroundColor: backgroundColor,
+
         cutout: '70%',
         borderWidth: 0,
         hoverOffset: 10,
         maintainAspectRatio: false,
       },
     ],
+    labels: label,
   };
 
   return (
@@ -43,10 +38,12 @@ export default function Chart({ statistics }) {
           height={height}
           options={{
             maintainAspectRatio: false,
-            responsive: true,
             layout: {
-              padding: {
-                bottom: 25,
+              padding: 10,
+            },
+            plugins: {
+              legend: {
+                display: false,
               },
             },
           }}
@@ -64,6 +61,3 @@ export default function Chart({ statistics }) {
     </>
   );
 }
-
-// идеи *
-// можно закрепить цвет за каждой категорией (хранить не в БД, а в привязке к DiagramTab, т.к. цвета отображаются только в этом элементе)
