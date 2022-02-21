@@ -6,12 +6,16 @@ p {
 
 .container {
   width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
   padding-right: 20px;
   padding-left: 20px;
-  padding-top: 110px;
   margin-bottom: 30px;
   display: flex;
   flex-direction: row;
@@ -102,7 +106,7 @@ p {
 @media screen and (max-width: 767px) {
   .form {
     text-align: center;
-    height: 100vh;
+    /* height: 100vh; */
     width: 320px;
     margin-left: auto;
     margin-right: auto;
@@ -112,9 +116,7 @@ p {
     background-color: #ffffff;
   }
 }
-.authForm {
-  height: auto;
-}
+
 @media screen and (min-width: 768px) {
   .logoIcon {
     width: 181px;
@@ -180,11 +182,15 @@ p {
   .logo {
     padding-top: 0;
   }
+  .container {
+    align-items: normal;
+    justify-content: normal;
+  }
 }
 
 @media screen and (min-width: 1280px) {
   .container {
-    display: flex;
+    flex-direction: row;
     margin-right: auto;
     margin-left: auto;
   }
