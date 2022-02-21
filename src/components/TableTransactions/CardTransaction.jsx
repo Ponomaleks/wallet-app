@@ -79,7 +79,7 @@ const CardTransaction = ({ transaction }) => {
         <Divider />
         <p className={classes.item}>
           <span className={classes.title}>Category</span>
-          <span className={classes.value}>{transaction.name}</span>
+          <span className={classes.value}>{transaction.category}</span>
         </p>
         <Divider />
         <p className={classes.item}>
