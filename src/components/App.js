@@ -4,7 +4,7 @@ import { authSelectors } from '../redux/auth';
 import { authOperations } from '../redux/auth';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer, Zoom } from 'react-toastify';
-import { Triangle } from 'react-loader-spinner';
+import { BallTriangle } from 'react-loader-spinner';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import DiagramView from '../views/DiagramView';
@@ -29,80 +29,86 @@ function App() {
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
   useEffect(() => dispatch(authOperations.fetchCurrentUser()), [dispatch]);
-  return (
-    !isFetchingCurrentUser && (
-      <>
-        <Suspense
-          fallback={
-            <Triangle
-              height="200"
-              width="200"
-              color="#ff6596"
-              ariaLabel="loading"
-              className="Loader"
-            />
-          }
-        >
-          <Routes>
-            <Route
-              path="/register"
-              element={
-                <PublicRoute restricted>
-                  <RegisterView replace to="/login" />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/login"
-              element={
-                <PublicRoute restricted>
-                  <LoginView replace to="/" />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/"
-              element={
-                <PrivateRoute>
-                  <Navigate replace to="/home" />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/home"
-              element={
-                <PrivateRoute>
-                  <HomeView />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/diagram"
-              element={
-                <PrivateRoute>
-                  <DiagramView />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/currency"
-              element={
-                <PrivateRoute>
-                  <CurrencyView />
-                </PrivateRoute>
-              }
-            />
-            <Route path="*" element={<NotFoundView />} />
-          </Routes>
-        </Suspense>
+  return !isFetchingCurrentUser ? (
+    <>
+      <Suspense
+        fallback={
+          <BallTriangle
+            height="100"
+            width="100"
+            color="#FF6596"
+            ariaLabel="loading"
+          />
+        }
+      >
+        <Routes>
+          <Route
+            path="/register"
+            element={
+              <PublicRoute restricted>
+                <RegisterView replace to="/login" />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute restricted>
+                <LoginView replace to="/" />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <Navigate replace to="/home" />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/home"
+            element={
+              <PrivateRoute>
+                <HomeView />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/diagram"
+            element={
+              <PrivateRoute>
+                <DiagramView />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/currency"
+            element={
+              <PrivateRoute>
+                <CurrencyView />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<NotFoundView />} />
+        </Routes>
+      </Suspense>
 
-        <ToastContainer
-          transition={Zoom}
-          autoClose={4000}
-          toastStyle={{ backgroundColor: '#f3b8b8', color: '#000000' }}
-        />
-      </>
-    )
+      <ToastContainer
+        transition={Zoom}
+        autoClose={4000}
+        toastStyle={{ backgroundColor: '#f3b8b8', color: '#000000' }}
+      />
+    </>
+  ) : (
+    <>
+      <BallTriangle
+        height="100"
+        width="100"
+        color="#FF6596"
+        ariaLabel="loading"
+      />
+    </>
   );
 }
 
