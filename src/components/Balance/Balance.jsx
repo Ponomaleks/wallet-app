@@ -2,8 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import InputAdornment from '@mui/material/InputAdornment';
 
-import { getBalance } from '../../redux/transactions';
+import { authSelectors } from '../../redux/auth';
 import formatNumber from '../../service/formatNumber';
 import './Balance.module.css';
 
@@ -38,27 +39,37 @@ const useStylesReddit = makeStyles(theme => ({
     fontSize: '30px',
     lineHeight: 1.5,
     color: '#000',
-    paddingLeft: '40px',
+    paddingTop: '10px',
+  },
+  startAdomerment: {
+    fontFamily: 'SegoeUI',
+    fontSize: '30px',
+    lineHeight: 1.5,
+    color: '#000',
+    marginLeft: '28px',
   },
   focused: {},
 }));
 
 const Balance = () => {
   const classes = useStylesReddit();
-  const balance = formatNumber(useSelector(getBalance), {
+
+  const balance = formatNumber(useSelector(authSelectors.getUserBalance), {
     precision: 2,
     thousand: ' ',
   });
-
-  console.log(balance);
 
   return (
     <TextField
       label="your balance"
       id="outlined-read-only-input"
-      defaultValue="₴ 0.00"
-      // "₴ {balance}"
+      defaultValue={balance}
       InputProps={{
+        startAdornment: (
+          <InputAdornment className={classes.startAdomerment} position="start">
+            ₴{' '}
+          </InputAdornment>
+        ),
         readOnly: true,
         classes,
         disableUnderline: true,
