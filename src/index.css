@@ -117,3 +117,11 @@ select:-webkit-autofill:focus {
     padding: 0 85px;
   }
 }
+
+div[data-testid='ball-triangle-loading'] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+}

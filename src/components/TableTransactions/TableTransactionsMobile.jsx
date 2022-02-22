@@ -6,7 +6,6 @@ import {
   fetchTransactions,
 } from '../../redux/transactions';
 import { CardTransaction } from './CardTransaction';
-// import MocData from '../../devData.json';
 import './TableTransactionsMobile.module.css';
 
 const TableTransactionsMobile = () => {

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-// import { styled } from '@mui/material/styles';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Checkbox,
@@ -19,49 +19,12 @@ import {
 import DeleteIcon from '@material-ui/icons/Delete';
 import formatNumber from '../../service/formatNumber';
 import WoobleHover from '../../helpers/WoobleAnimation';
-// import MocData from '../../devData.json';
+import {
+  getAllTransactions,
+  fetchTransactions,
+} from '../../redux/transactions';
+
 import './TableTransactions.module.css';
-
-function createData(
-  date,
-  typeTransaction,
-  name,
-  commentary,
-  amountTransaction,
-  balance,
-) {
-  return {
-    date,
-    typeTransaction,
-    name,
-    commentary,
-    amountTransaction,
-    balance,
-  };
-}
-// const data = MocData.map(arr => {
-//   const a = new Object(arr);
-//   return a;
-// });
-// const data = JSON.parse(MocData);
-
-// console.log(data);
-
-// const rows = [
-//   createData(
-//     data.date,
-//     data.typeTransaction,
-//     data.name,
-//     data.commentary,
-//     data.amountTransaction,
-//     data.balance
-//   ),
-// ];
-
-const rows = [
-  createData('22.01.01', '+', 'personal', 'pers', 10000.0, 23000.0),
-  createData('22.01.02', '-', 'food', 'ice cream', 1000.0, 22000.0),
-];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -126,10 +89,6 @@ const headCells = [
     disablePadding: false,
     label: 'Balance',
   },
-  // { id: 'calories', numeric: true, disablePadding: false, label: 'Calories' },
-  // { id: 'fat', numeric: true, disablePadding: false, label: 'Fat (g)' },
-  // { id: 'carbs', numeric: true, disablePadding: false, label: 'Carbs (g)' },
-  // { id: 'protein', numeric: true, disablePadding: false, label: 'Protein (g)' },
 ];
 
 function EnhancedTableHead(props) {
@@ -250,6 +209,13 @@ const TableTransactions = () => {
   const [dense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
+  const rows = useSelector(getAllTransactions);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTransactions());
+  }, [dispatch]);
+
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -293,10 +259,6 @@ const TableTransactions = () => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-
-  // const handleChangeDense = event => {
-  //   setDense(event.target.checked);
-  // };
 
   const isSelected = name => selected.indexOf(name) !== -1;
 
@@ -357,7 +319,7 @@ const TableTransactions = () => {
                         scope="row"
                         padding="none"
                       >
-                        {row.name}
+                        {row.category}
                       </TableCell>
                       <TableCell>{row.commentary}</TableCell>
                       <TableCell
