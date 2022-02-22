@@ -1,12 +1,12 @@
-import * as React from 'react';
+import React from 'react';
+import DatePicker from 'react-datepicker';
 import frLocale from 'date-fns/locale/fr';
 import ruLocale from 'date-fns/locale/ru';
 import deLocale from 'date-fns/locale/de';
 import enLocale from 'date-fns/locale/en-US';
-import TextField from '@mui/material/TextField';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import DatePicker from '@mui/lab/DatePicker';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const localeMap = {
   en: enLocale,
@@ -22,23 +22,21 @@ const maskMap = {
   de: '__.__.____',
 };
 
-export default function LocalizedDatePicker() {
-  const [locale, setLocale] = React.useState('ru');
-  const [value, setValue] = React.useState(new Date());
-
+export default function DataPicker({ value, onChange }) {
+  const [locale, setLocale] = React.useState('en');
   return (
     <LocalizationProvider
       dateAdapter={AdapterDateFns}
       locale={localeMap[locale]}
     >
-      <div>
-        <DatePicker
-          mask={maskMap[locale]}
-          value={value}
-          onChange={newValue => setValue(newValue)}
-          renderInput={params => <TextField {...params} />}
-        />
-      </div>
+      <DatePicker
+        mask={maskMap[locale]}
+        selected={value}
+        onChange={date => {
+          return onChange('date', date);
+        }}
+        dateFormat="dd.MM.yyyy"
+      />
     </LocalizationProvider>
   );
 }
