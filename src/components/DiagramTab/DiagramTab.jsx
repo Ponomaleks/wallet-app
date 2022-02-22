@@ -2,18 +2,16 @@ import { useEffect, useState } from 'react';
 import s from './DiagramTab.module.css';
 import Chart from './Chart/Chart';
 import Table from './Table/Table';
+import { useSelector } from 'react-redux';
+import { getAllTransactions } from '../../redux/transactions';
 
 import dates from '../../service/monthAndYear';
 import { costCategories } from '../../service/categoriesList';
 
-//=======test data
-import statistics from '../../devData copy.json';
-//========
-
 const { currentYear, currentMonth, months } = dates;
 
-function getIncome(month, year) {
-  return statistics.reduce((acc, el) => {
+function getIncome(transactions, month, year) {
+  return transactions.reduce((acc, el) => {
     if (
       el.typeTransaction === '+' &&
       el.month === months.indexOf(month) + 1 &&
@@ -62,14 +60,16 @@ function prepareData(data, month, year) {
   return formatForRender(filterByDate(data, month, year));
 }
 
-const currentMonthIncomeSum = getIncome(currentMonth, currentYear);
-const currentMonthCostsArr = prepareData(statistics, currentMonth, currentYear);
-
 export default function DiagramTab() {
+  const [allTransactions] = useState(useSelector(getAllTransactions));
   const [month, setMonth] = useState(currentMonth);
   const [year, setYear] = useState(currentYear);
-  const [income, setIncome] = useState(currentMonthIncomeSum);
-  const [filteredData, setFilteredData] = useState(currentMonthCostsArr);
+  const [income, setIncome] = useState(
+    getIncome(allTransactions, currentMonth, currentYear),
+  );
+  const [filteredData, setFilteredData] = useState(
+    prepareData(allTransactions, currentMonth, currentYear),
+  );
 
   const handleChangeYear = ({ target: { value } }) => {
     setYear(Number(value));
@@ -79,9 +79,9 @@ export default function DiagramTab() {
   };
 
   useEffect(() => {
-    setFilteredData(prepareData(statistics, month, year));
-    setIncome(getIncome(month, year));
-  }, [month, year]);
+    setFilteredData(prepareData(allTransactions, month, year));
+    setIncome(getIncome(allTransactions, month, year));
+  }, [allTransactions, month, year]);
 
   return (
     <div className={s.tab}>
@@ -107,5 +107,4 @@ export default function DiagramTab() {
 
 // идеи *
 // можно сделать радиобатон и выводить статистику по расходам/доходам (но нужно больше категорий дохода)
-// можно закрепить цвет за каждой категорией (хранить не в БД, а в привязке к DiagramTab, т.к. цвета отображаются только в этом элементе)
 // можно добавить функционал добавления категорий (создать категорию, добавить цвет, отправить в БД, сохранить в state, добавить options в модалку (убрать валидацию по списку категорий а БД))
