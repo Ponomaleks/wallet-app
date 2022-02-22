@@ -27,9 +27,9 @@ export default function Table({
               {el}
             </option>
           ))}
-          {/* <option key="full" value="full">
+          <option key="full" value="full">
             Full year
-          </option> */}
+          </option>
         </select>
         <select
           onChange={handleChangeYear}
@@ -41,9 +41,9 @@ export default function Table({
               {el}
             </option>
           ))}
-          {/* <option key="full" value="full">
+          <option key="full" value="full">
             All years
-          </option> */}
+          </option>
         </select>
       </div>
 

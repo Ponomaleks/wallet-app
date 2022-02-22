@@ -14,8 +14,8 @@ function getIncome(transactions, month, year) {
   return transactions.reduce((acc, el) => {
     if (
       el.typeTransaction === '+' &&
-      el.month === months.indexOf(month) + 1 &&
-      el.year === year
+      (month !== 'full' ? el.month === months.indexOf(month) + 1 : true) &&
+      (year !== 'full' ? el.year === Number(year) : true)
     ) {
       return acc + el.amountTransaction;
     }
@@ -27,8 +27,8 @@ function filterByDate(data, month, year) {
   return data.filter(el => {
     return (
       el.typeTransaction === '-' &&
-      el.month === months.indexOf(month) + 1 &&
-      el.year === year
+      (month !== 'full' ? el.month === months.indexOf(month) + 1 : true) &&
+      (year !== 'full' ? el.year === Number(year) : true)
     );
   });
 }
@@ -72,7 +72,7 @@ export default function DiagramTab() {
   );
 
   const handleChangeYear = ({ target: { value } }) => {
-    setYear(Number(value));
+    setYear(value);
   };
   const handleChangeMonth = ({ target: { value } }) => {
     setMonth(value);

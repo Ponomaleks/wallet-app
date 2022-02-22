@@ -58,7 +58,7 @@ const Balance = () => {
     precision: 2,
     thousand: ' ',
   });
-
+  console.log(useSelector(authSelectors.getUserBalance));
   return (
     <TextField
       label="your balance"
