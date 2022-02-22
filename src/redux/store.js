@@ -42,16 +42,6 @@ export const store = configureStore({
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
-
-  // middleware: getDefaultMiddleware => [
-  //   ...getDefaultMiddleware({
-  //     serializableCheck: {
-  //       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-  //     },
-  //   }),
-
-  //   logger,
-  // ],
 });
 
 export const persistor = persistStore(store);

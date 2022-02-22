@@ -10,18 +10,13 @@ import s from './HomeView.module.css';
 import Header from '../../components/Header';
 import Modal from '../../components/ModalAddTransactions/Modal';
 import BackdropFilter from '../../components/BackdropFilter/BackdropFilter';
-// import { useSelector } from 'react-redux';
-// import { getIsLoggedIn } from '../redux/user';
 
 const HomeView = () => {
-  // const isLoggedIn = useSelector(getIsLoggedIn);
-
   return (
     <>
       <Header />
       <BackdropFilter>
         <div className={`container ${s.homeView} ${s.homeBackground}`}>
-          {/* {!isLoggedIn && <div>Please, register or log in to start. </div>} */}
           <Sidebar />
           <Media
             queries={{
