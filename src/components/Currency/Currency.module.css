@@ -87,7 +87,7 @@
 @media screen and (min-width: 768px) {
   .tableWrapper {
     /* width: 348px; */
-    margin-left: 20px;
+    /* margin-left: 20px; */
     margin-top: 0px;
   }
   .tableWrapper th {
