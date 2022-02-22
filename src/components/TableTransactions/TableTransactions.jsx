@@ -24,7 +24,7 @@ import {
   fetchTransactions,
 } from '../../redux/transactions';
 
-import './TableTransactions.module.css';
+import s from './TableTransactions.module.css';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -108,7 +108,7 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox">
+        <TableCell padding="checkbox" className={s.first}>
           <Checkbox
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
@@ -122,6 +122,7 @@ function EnhancedTableHead(props) {
             align={headCell.numeric ? 'right' : 'left'}
             padding={headCell.disablePadding ? 'none' : 'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
+            className={s.titleCells}
           >
             <TableSortLabel
               active={orderBy === headCell.id}
@@ -168,9 +169,12 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     width: '100%',
-    borderRadius: '30px',
+    // borderRadius: '30px',
+    backgroundColor: 'transparent',
+    boxShadow: 'none',
   },
   table: {
+    border: 'none',
     width: '688px',
     '&:first-child td': {
       paddingLeft: '4px',
