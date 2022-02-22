@@ -172,7 +172,6 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     width: '100%',
-    // borderRadius: '30px',
     backgroundColor: 'transparent',
     boxShadow: 'none',
   },
@@ -181,9 +180,6 @@ const useStyles = makeStyles(theme => ({
     width: '688px',
     '&:first-child td': {
       paddingLeft: '4px',
-      // border: 0,
-      // fontSize: '18px',
-      // fontFamily: 'Circe Bold',
     },
   },
   visuallyHidden: {

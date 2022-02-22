@@ -12,10 +12,6 @@ const useStyles = makeStyles({
     backgroundColor: '#fff',
     margin: 0,
   },
-  cardContent: {
-    // paddingTop: 0,
-    // paddingBottom: 0,
-  },
   item: {
     fontSize: '18px',
     textTransform: 'none',

@@ -1,7 +1,6 @@
 import React from 'react';
 import s from './UserMenu.module.css';
 import defaultAvatar from '../../../images/icon.png';
-// import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { makeStyles } from '@material-ui/core/styles';
 import { Avatar } from '@material-ui/core';
 import { useSelector } from 'react-redux';

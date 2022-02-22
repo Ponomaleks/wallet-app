@@ -1,5 +1,4 @@
 import { createReducer } from '@reduxjs/toolkit';
-// import { logoutSuccess } from '../auth/auth-actions';
 import {
   getOperationsSuccess,
   addNewOperationSuccess,
@@ -19,7 +18,6 @@ const operationReducer = createReducer([], {
   [addNewOperationSuccess]: (_, { payload }) => [...payload],
   [deleteOperationSuccess]: (_, { payload }) => [...payload],
   [changeOperationSuccess]: (_, { payload }) => [...payload],
-//   [logoutSuccess]: () => [],
 });
 
 const modalTransaction = createReducer(false, {
