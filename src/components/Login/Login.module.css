@@ -112,7 +112,9 @@ p {
     background-color: #ffffff;
   }
 }
-
+.authForm {
+  height: auto;
+}
 @media screen and (min-width: 768px) {
   .logoIcon {
     width: 181px;
@@ -174,6 +176,9 @@ p {
     font-weight: 400;
     font-size: 30px;
     line-height: 45px;
+  }
+  .logo {
+    padding-top: 0;
   }
 }
 

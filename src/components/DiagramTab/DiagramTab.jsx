@@ -87,7 +87,11 @@ export default function DiagramTab() {
     <div className={s.tab}>
       <h2 className={s.header}>Statistics</h2>
       <div className={s.wrapper}>
-        {filteredData.length ? <Chart statistics={filteredData}></Chart> : null}
+        {filteredData.length ? (
+          <Chart statistics={filteredData}></Chart>
+        ) : (
+          <h4 className={s.noChart}>Choose another period</h4>
+        )}
         <div className={s.tableWrapper}>
           <Table
             data={filteredData}
