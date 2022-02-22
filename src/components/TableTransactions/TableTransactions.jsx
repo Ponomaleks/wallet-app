@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { BallTriangle } from 'react-loader-spinner';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -22,9 +23,11 @@ import WoobleHover from '../../helpers/WoobleAnimation';
 import {
   getAllTransactions,
   fetchTransactions,
+  getLoading,
 } from '../../redux/transactions';
 
 import s from './TableTransactions.module.css';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -214,6 +217,7 @@ const TableTransactions = () => {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const rows = useSelector(getAllTransactions);
+  const loading = useSelector(getLoading);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -271,6 +275,14 @@ const TableTransactions = () => {
 
   return (
     <div className={classes.root}>
+      {loading && (
+        <BallTriangle
+          height="100"
+          width="100"
+          color="#FF6596"
+          ariaLabel="loading"
+        />
+      )}
       <Paper className={classes.paper}>
         <TableContainer>
           <Table

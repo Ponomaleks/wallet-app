@@ -10,7 +10,6 @@ const fetchTransactions = createAsyncThunk(
     fetchTransactions.pending();
     try {
       const { data } = await axios.get('/transaction');
-      console.log(data);
       return data;
     } catch (error) {
       fetchTransactions.rejected(error);

@@ -50,8 +50,6 @@ const Balance = () => {
     thousand: ' ',
   });
 
-  console.log(balance);
-
   return (
     <TextField
       label="your balance"
