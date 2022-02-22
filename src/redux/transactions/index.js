@@ -1,9 +1,5 @@
 export { default } from './transactions-reducer';
-export {
-  getAllTransactions,
-  getBalance,
-  getLoading,
-} from './transactions-selectors';
+export { getAllTransactions, getLoading } from './transactions-selectors';
 export {
   fetchTransactions,
   deleteTransaction,
