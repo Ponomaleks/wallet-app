@@ -26,26 +26,6 @@ import {
 
 import './TableTransactions.module.css';
 
-function createData(
-  date,
-  typeTransaction,
-  category,
-  commentary,
-  amountTransaction,
-  balance,
-) {
-  return {
-    date,
-    typeTransaction,
-    category,
-    commentary,
-    amountTransaction,
-    balance,
-  };
-}
-
-const rows = [createData()];
-
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -229,7 +209,7 @@ const TableTransactions = () => {
   const [dense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  const AllTransactions = useSelector(getAllTransactions);
+  const rows = useSelector(getAllTransactions);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -306,7 +286,7 @@ const TableTransactions = () => {
             />
 
             <TableBody>
-              {stableSort(AllTransactions, getComparator(order, orderBy))
+              {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   const isItemSelected = isSelected(row.name);
