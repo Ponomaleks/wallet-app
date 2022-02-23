@@ -23,6 +23,7 @@ import WoobleHover from '../../helpers/WoobleAnimation';
 import {
   getAllTransactions,
   fetchTransactions,
+  deleteTransaction,
   getLoading,
 } from '../../redux/transactions';
 
@@ -314,9 +315,12 @@ const TableTransactions = () => {
                       key={row.name}
                       selected={isItemSelected}
                     >
-                      <TableCell padding="checkbox">
+                      <TableCell padding="checkbox" key={row._id}>
                         <WoobleHover rotation={20} timing={200}>
-                          <IconButton aria-label="delete">
+                          <IconButton
+                            aria-label="delete"
+                            onClick={() => dispatch(deleteTransaction(row._id))}
+                          >
                             <DeleteIcon />
                           </IconButton>
                         </WoobleHover>

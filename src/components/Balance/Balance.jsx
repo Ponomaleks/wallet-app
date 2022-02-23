@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+// import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -6,7 +7,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 
 import {
   getAllTransactions,
-  fetchTransactions,
+  // fetchTransactions,
 } from '../../redux/transactions';
 import { authSelectors } from '../../redux/auth';
 import formatNumber from '../../service/formatNumber';
