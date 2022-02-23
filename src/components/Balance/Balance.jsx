@@ -1,9 +1,14 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+// import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import InputAdornment from '@mui/material/InputAdornment';
 
+import {
+  getAllTransactions,
+  // fetchTransactions,
+} from '../../redux/transactions';
 import { authSelectors } from '../../redux/auth';
 import formatNumber from '../../service/formatNumber';
 import './Balance.module.css';
@@ -52,13 +57,27 @@ const useStylesReddit = makeStyles(theme => ({
 }));
 
 const Balance = () => {
-  const classes = useStylesReddit();
-
+  const dispatch = useDispatch();
+  const allTransactions = useSelector(getAllTransactions);
   const balance = formatNumber(useSelector(authSelectors.getUserBalance), {
     precision: 2,
     thousand: ' ',
   });
-  console.log(useSelector(authSelectors.getUserBalance));
+  const classes = useStylesReddit();
+
+  // const [loaded, setLoaded] = useState(false);
+
+  // const reloadPage = setTimeout(function () {
+  //   window.location.reload();
+  // }, 2000);
+
+  useEffect(() => {
+    // if (!loaded) return;
+    // dispatch(fetchTransactions());
+    // reloadPage();
+    // setLoaded(!loaded);
+  }, [dispatch, allTransactions]);
+
   return (
     <TextField
       label="your balance"
