@@ -23,7 +23,7 @@ const deleteTransaction = createAsyncThunk(
     deleteTransaction.pending();
     try {
       await axios.delete(`/transaction/${id}`);
-
+      // window.location.reload();
       return id;
     } catch (error) {
       deleteTransaction.rejected(error);

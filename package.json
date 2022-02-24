@@ -9,6 +9,7 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.4",
     "@mui/base": "^5.0.0-alpha.69",
+    "@mui/icons-material": "^5.4.2",
     "@mui/lab": "^5.0.0-alpha.69",
     "@mui/material": "^5.4.2",
     "@mui/styles": "^5.4.2",
@@ -44,6 +45,7 @@
     "redux": "^4.1.2",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
+    "uuid": "^8.3.2",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },

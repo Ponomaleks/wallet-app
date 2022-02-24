@@ -1,17 +1,15 @@
 import React, { useEffect } from 'react';
-// import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import InputAdornment from '@mui/material/InputAdornment';
-
 import {
+  fetchTransactions,
   getAllTransactions,
-  // fetchTransactions,
 } from '../../redux/transactions';
 import { authSelectors } from '../../redux/auth';
 import formatNumber from '../../service/formatNumber';
-import './Balance.module.css';
+import s from './Balance.module.css';
 
 const useStylesReddit = makeStyles(theme => ({
   root: {
@@ -19,11 +17,10 @@ const useStylesReddit = makeStyles(theme => ({
     width: '350px',
     height: '80px',
     lineHeight: 1.5,
-    backgroundColor: '#FFFFFF',
     color: '#a6a6a6',
     border: '1px solid #e2e2e1',
-    borderRadius: '30px',
     overflow: 'hidden',
+
     [theme.breakpoints.down(1280)]: {
       width: '334px',
     },
@@ -39,18 +36,24 @@ const useStylesReddit = makeStyles(theme => ({
       borderColor: theme.palette.primary.main,
     },
   },
+  inputBase: {
+    background: 'red',
+  },
   input: {
     fontFamily: 'SegoeUI',
     fontSize: '30px',
     lineHeight: 1.5,
-    color: '#000',
+    borderRadius: '30px 0 0 30px',
     paddingTop: '10px',
+    overflow: 'hidden',
   },
   startAdomerment: {
     fontFamily: 'SegoeUI',
-    fontSize: '30px',
+    fontSize: '20px',
     lineHeight: 1.5,
     color: '#000',
+    backgroundColor: '#FFFFFF',
+    marginTop: '15px',
     marginLeft: '28px',
   },
   focused: {},
@@ -65,36 +68,36 @@ const Balance = () => {
   });
   const classes = useStylesReddit();
 
-  // const [loaded, setLoaded] = useState(false);
-
-  // const reloadPage = setTimeout(function () {
-  //   window.location.reload();
-  // }, 2000);
-
   useEffect(() => {
-    // if (!loaded) return;
-    // dispatch(fetchTransactions());
-    // reloadPage();
-    // setLoaded(!loaded);
+    if (allTransactions) return;
+    dispatch(fetchTransactions());
   }, [dispatch, allTransactions]);
 
   return (
-    <TextField
-      label="your balance"
-      id="outlined-read-only-input"
-      defaultValue={balance}
-      InputProps={{
-        startAdornment: (
-          <InputAdornment className={classes.startAdomerment} position="start">
-            ₴{' '}
-          </InputAdornment>
-        ),
-        readOnly: true,
-        classes,
-        disableUnderline: true,
-      }}
-      variant="filled"
-    />
+    balance && (
+      <div className={s.container}>
+        <TextField
+          className={s.field}
+          label="your balance"
+          id="outlined-read-only-input"
+          defaultValue={balance}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment
+                className={classes.startAdomerment}
+                position="start"
+              >
+                <span className={s.currency}>₴ </span>
+              </InputAdornment>
+            ),
+            readOnly: true,
+            // classes,
+            disableUnderline: true,
+          }}
+          variant="filled"
+        />
+      </div>
+    )
   );
 };
 
