@@ -160,18 +160,23 @@ EnhancedTableHead.propTypes = {
 
 const useStyles = makeStyles(theme => ({
   root: {
+    paddingTop: '50px',
+    paddingLeft: '30px',
+    width: '100%',
     '& > *': {
-      margin: theme.spacing(1),
+      // margin: theme.spacing(1),
     },
     fontFamily: 'Circe-Regular',
     fontSize: '16px',
     lineHeight: 1.473,
     textTransform: 'none',
     [theme.breakpoints.down(1280)]: {
-      // width: '688px',
+      width: '100%',
+      padding: '0',
     },
   },
   paper: {
+    width: '100%',
     backgroundColor: 'transparent',
     boxShadow: 'none',
   },
