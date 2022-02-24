@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import { BallTriangle } from 'react-loader-spinner';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
@@ -110,7 +111,7 @@ function EnhancedTableHead(props) {
   };
 
   return (
-    <TableHead>
+    <TableHead className={s.head}>
       <TableRow>
         <TableCell padding="checkbox" className={s.first}>
           <Checkbox
@@ -122,7 +123,7 @@ function EnhancedTableHead(props) {
         </TableCell>
         {headCells.map(headCell => (
           <TableCell
-            key={headCell.id}
+            key={uuidv4()}
             align={headCell.numeric ? 'right' : 'left'}
             padding={headCell.disablePadding ? 'none' : 'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
@@ -159,7 +160,6 @@ EnhancedTableHead.propTypes = {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '700px',
     '& > *': {
       margin: theme.spacing(1),
     },
@@ -168,20 +168,19 @@ const useStyles = makeStyles(theme => ({
     lineHeight: 1.473,
     textTransform: 'none',
     [theme.breakpoints.down(1280)]: {
-      width: '688px',
+      // width: '688px',
     },
   },
   paper: {
-    width: '100%',
     backgroundColor: 'transparent',
     boxShadow: 'none',
   },
   table: {
     border: 'none',
-    width: '688px',
     '&:first-child td': {
       paddingLeft: '4px',
     },
+    EnhancedTableHead: {},
   },
   visuallyHidden: {
     border: 0,
@@ -290,6 +289,7 @@ const TableTransactions = () => {
           >
             <EnhancedTableHead
               classes={classes}
+              align="right"
               numSelected={selected.length}
               order={order}
               orderBy={orderBy}
@@ -312,10 +312,10 @@ const TableTransactions = () => {
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.name}
+                      key={uuidv4()}
                       selected={isItemSelected}
                     >
-                      <TableCell padding="checkbox" key={row._id}>
+                      <TableCell padding="checkbox" key={row._id} align="right">
                         <WoobleHover rotation={20} timing={200}>
                           <IconButton
                             aria-label="delete"
@@ -333,6 +333,7 @@ const TableTransactions = () => {
                         component="th"
                         id={labelId}
                         scope="row"
+                        align="center"
                         padding="none"
                       >
                         {row.category}
