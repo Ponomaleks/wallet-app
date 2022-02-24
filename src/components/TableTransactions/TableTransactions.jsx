@@ -159,16 +159,19 @@ EnhancedTableHead.propTypes = {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '700px',
+    paddingTop: '50px',
+    paddingLeft: '30px',
+    width: '100%',
     '& > *': {
-      margin: theme.spacing(1),
+      // margin: theme.spacing(1),
     },
     fontFamily: 'Circe-Regular',
     fontSize: '16px',
     lineHeight: 1.473,
     textTransform: 'none',
     [theme.breakpoints.down(1280)]: {
-      width: '688px',
+      width: '100%',
+      padding: '0',
     },
   },
   paper: {
@@ -178,7 +181,7 @@ const useStyles = makeStyles(theme => ({
   },
   table: {
     border: 'none',
-    width: '688px',
+    width: '100%',
     '&:first-child td': {
       paddingLeft: '4px',
     },
