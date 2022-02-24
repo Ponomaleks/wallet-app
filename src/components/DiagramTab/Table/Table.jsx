@@ -7,13 +7,10 @@ const { currentYear, currentMonth, months, years } = dates;
 export default function Table({
   data,
   income = 0,
+  costs = 0,
   handleChangeMonth,
   handleChangeYear,
 }) {
-  const costs = data.reduce((acc, curr) => {
-    return acc + curr.sum;
-  }, 0);
-
   return (
     <>
       <div className={s.selectWrapper}>

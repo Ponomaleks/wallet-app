@@ -17,6 +17,7 @@ import {
   modalTransaction,
   modalOperation,
 } from './operations/operations-reducer';
+import statisticsReducer from './statistics';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -39,6 +40,7 @@ export const store = configureStore({
     modal: modalTransaction,
     modalOperation: modalOperation,
     operations: operationReducer,
+    statistics: statisticsReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

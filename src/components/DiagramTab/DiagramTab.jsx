@@ -2,74 +2,22 @@ import { useEffect, useState } from 'react';
 import s from './DiagramTab.module.css';
 import Chart from './Chart/Chart';
 import Table from './Table/Table';
-import { useSelector } from 'react-redux';
-import { getAllTransactions } from '../../redux/transactions';
-
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  fetchStatistics,
+  getStatistics,
+  getCosts,
+  getIncome,
+} from '../../redux/statistics';
 import dates from '../../service/monthAndYear';
-import { costCategories } from '../../service/categoriesList';
 
 const { currentYear, currentMonth, months } = dates;
 
-function getIncome(transactions, month, year) {
-  return transactions.reduce((acc, el) => {
-    if (
-      el.typeTransaction === '+' &&
-      (month !== 'full' ? el.month === months.indexOf(month) + 1 : true) &&
-      (year !== 'full' ? el.year === Number(year) : true)
-    ) {
-      return acc + el.amountTransaction;
-    }
-    return acc;
-  }, 0);
-}
-
-function filterByDate(data, month, year) {
-  return data.filter(el => {
-    return (
-      el.typeTransaction === '-' &&
-      (month !== 'full' ? el.month === months.indexOf(month) + 1 : true) &&
-      (year !== 'full' ? el.year === Number(year) : true)
-    );
-  });
-}
-
-function formatForRender(filteredData) {
-  const result = [];
-  for (const category of costCategories) {
-    const { value, color } = category;
-
-    const categorySum = filteredData.reduce(
-      (acc, curr) => {
-        if (curr.category === value) {
-          acc.category = value;
-          acc.sum = acc.sum + curr.amountTransaction;
-        }
-
-        return acc;
-      },
-      { category: '', sum: 0, color: color },
-    );
-    if (categorySum.category !== '') {
-      result.push(categorySum);
-    }
-  }
-  return result;
-}
-
-function prepareData(data, month, year) {
-  return formatForRender(filterByDate(data, month, year));
-}
-
 export default function DiagramTab() {
-  const [allTransactions] = useState(useSelector(getAllTransactions));
   const [month, setMonth] = useState(currentMonth);
   const [year, setYear] = useState(currentYear);
-  const [income, setIncome] = useState(
-    getIncome(allTransactions, currentMonth, currentYear),
-  );
-  const [filteredData, setFilteredData] = useState(
-    prepareData(allTransactions, currentMonth, currentYear),
-  );
+  // const [costs] = useState(useSelector(getCosts));
+  // const [income] = useState(useSelector(getIncome));
 
   const handleChangeYear = ({ target: { value } }) => {
     setYear(value);
@@ -78,24 +26,35 @@ export default function DiagramTab() {
     setMonth(value);
   };
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    setFilteredData(prepareData(allTransactions, month, year));
-    setIncome(getIncome(allTransactions, month, year));
-  }, [allTransactions, month, year]);
+    const filterCosts = (month, year) => {
+      const monthQuery = month !== 'full' ? months.indexOf(month) + 1 : 'full';
+      dispatch(fetchStatistics({ month: monthQuery, year: year }));
+    };
+
+    filterCosts(month, year);
+  }, [dispatch, month, year]);
+
+  const backStatistics = useSelector(getStatistics);
+  const costs = useSelector(getCosts);
+  const income = useSelector(getIncome);
 
   return (
     <div className={s.tab}>
       <h2 className={s.header}>Statistics</h2>
       <div className={s.wrapper}>
-        {filteredData.length ? (
-          <Chart statistics={filteredData}></Chart>
+        {backStatistics.length ? (
+          <Chart statistics={backStatistics}></Chart>
         ) : (
           <h4 className={s.noChart}>Choose another period</h4>
         )}
         <div className={s.tableWrapper}>
           <Table
-            data={filteredData}
+            data={backStatistics}
             income={income}
+            costs={costs}
             handleChangeMonth={handleChangeMonth}
             handleChangeYear={handleChangeYear}
           ></Table>
