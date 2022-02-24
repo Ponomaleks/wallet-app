@@ -11,7 +11,6 @@ const costs = createReducer([], {
 const income = createReducer([], {
   [fetchStatistics.fulfilled]: (_, { payload }) => payload.income,
 });
-
 const error = createReducer(null, {
   [fetchStatistics.rejected]: (_, action) => action.payload,
   [fetchStatistics.pending]: () => null,
