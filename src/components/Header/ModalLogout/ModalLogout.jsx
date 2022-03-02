@@ -43,7 +43,7 @@ const LogoutModal = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} className={s.box}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Are you sure that you want logout?
           </Typography>

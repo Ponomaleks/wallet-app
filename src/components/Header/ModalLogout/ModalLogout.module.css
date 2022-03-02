@@ -22,6 +22,11 @@
   transform: scale(1.02);
 }
 
+.box {
+  border-radius: 20px;
+  width: 100%;
+}
+
 .buttonAddTransaction {
   display: flex;
   justify-content: center;
