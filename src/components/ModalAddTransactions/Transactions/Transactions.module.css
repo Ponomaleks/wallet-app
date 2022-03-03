@@ -1,3 +1,9 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .box{
     position: absolute;
     width: 320px;
@@ -9,7 +15,6 @@
     align-items: center;
     padding-bottom: 43px;
 }
-
 
 .closeButton {
   position: absolute;
@@ -33,6 +38,8 @@
   transition: var(--time-function);
   background-color: var(--auth-icons);
 }
+
+
 
 .leader{
   display: flex;
@@ -137,3 +144,13 @@
     background-color: var(--light-color);
 }
 
+.Expense{
+  margin-left: 10px;
+}
+.block{
+  display: flex;
+  margin-top: 25px;
+  margin-left: 65px;
+  justify-content: center;
+  align-items: center;
+}
