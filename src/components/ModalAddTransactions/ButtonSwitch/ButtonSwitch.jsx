@@ -38,7 +38,7 @@ function ButtonSwitch({ value, changeSwitch }) {
               onColor="#fff"
             />
           </label>
-          <h3 className={value ? s.outlayActive : s.outlayNoActive}>Expense</h3>
+            <h3 className={value ? s.outlayActive : s.outlayNoActive}>Expense</h3>
         </div>
       );
 }
