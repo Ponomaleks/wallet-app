@@ -60,10 +60,6 @@ html {
   height: 100%;
 }
 
-/* body {
-  height: 100%;
-} */
-
 #root {
   /* min-height: 100vh; */
   height: 100%;
@@ -129,3 +125,5 @@ div[data-testid='ball-triangle-loading'] {
   z-index: 1;
   transform: translate(-50%, -50%);
 }
+
+/* .MuiFormControl-root */

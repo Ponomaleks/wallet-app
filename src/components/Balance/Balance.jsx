@@ -18,6 +18,8 @@ const useStylesReddit = makeStyles(theme => ({
     height: '80px',
     lineHeight: 1.5,
     color: '#a6a6a6',
+    // backgroundColor: 'red',
+    // color: 'red',
     border: '1px solid #e2e2e1',
     overflow: 'hidden',
 
@@ -36,9 +38,16 @@ const useStylesReddit = makeStyles(theme => ({
       borderColor: theme.palette.primary.main,
     },
   },
-  inputBase: {
-    background: 'red',
-  },
+
+  // TextField: {
+  //   FilledInput: {
+  //     backgroundColor: 'red',
+  //     color: 'red',
+  //   },
+  // },
+  // MuiFilledInput: {
+  //   backgroundColor: 'red',
+  // },
   input: {
     fontFamily: 'SegoeUI',
     fontSize: '30px',
@@ -46,13 +55,16 @@ const useStylesReddit = makeStyles(theme => ({
     borderRadius: '30px 0 0 30px',
     paddingTop: '10px',
     overflow: 'hidden',
+    // color:'red'
   },
   startAdomerment: {
     fontFamily: 'SegoeUI',
     fontSize: '20px',
     lineHeight: 1.5,
     color: '#000',
-    backgroundColor: '#FFFFFF',
+    // backgroundColor: '#FFFFFF',
+    backgroundColor: 'transparent',
+    // color: 'red',
     marginTop: '15px',
     marginLeft: '28px',
   },
@@ -84,7 +96,7 @@ const Balance = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment
-                className={classes.startAdomerment}
+                className={`${classes.startAdomerment} ${s.input}`}
                 position="start"
               >
                 <span className={s.currency}>₴ </span>

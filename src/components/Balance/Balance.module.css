@@ -6,6 +6,7 @@ label {
 }
 
 .field {
+  height: 80px;
   background-color: var(--light-color);
   overflow: hidden;
   border-collapse: collapse;
