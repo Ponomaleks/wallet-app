@@ -4,16 +4,16 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.box{
-    position: absolute;
-    width: 320px;
-    background: var(--light-color);
-    display: flex;
-    font-size: 40px;
-    border-style: none;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 43px;
+.box {
+  position: absolute;
+  width: 320px;
+  background: var(--light-color);
+  display: flex;
+  font-size: 40px;
+  border-style: none;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 43px;
 }
 
 .closeButton {
@@ -30,18 +30,16 @@ input::-webkit-inner-spin-button {
   align-items: center;
   border-style: none;
   background-color: var(--light-color);
-  transition: var(--time-function);    
+  transition: var(--time-function);
 }
 
 .closeButton:hover,
-.closeButton:focus{
+.closeButton:focus {
   transition: var(--time-function);
   background-color: var(--auth-icons);
 }
 
-
-
-.leader{
+.leader {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,102 +50,101 @@ input::-webkit-inner-spin-button {
 }
 
 .button {
-    border: none;
-    position: absolute;
-    border-radius: 50%;
-    box-shadow: 0px 6px 15px var(--green-color);
-    width: 44px;
-    height: 44px;
-    right: 20px;
-    bottom: 40px;
-    padding: 0;
-    display: block;
-    background-color: var(--green-color); 
-  }
+  border: none;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0px 6px 15px var(--green-color);
+  width: 44px;
+  height: 44px;
+  right: 20px;
+  bottom: 40px;
+  padding: 0;
+  display: block;
+  background-color: var(--green-color);
+}
 
-  @media screen and (min-width: 1280px) {
-    .button{
-      right: 85px;
-    }
+@media screen and (min-width: 1280px) {
+  .button {
+    right: 85px;
   }
-  
-  @media screen and (min-width: 540px) {
-    .box {
-      width: 540px;
-      border-radius: 20px;
-      padding-bottom: 60px;
-    }
-    .button{
-      right: 40px;
-    }
-    .leader{
-      font-size: 30px;
-      line-height: 45px;
-    }
-  }
+}
 
-  .buttonIcon {
-    position: absolute;
-    top:3px;
-    left: 5px;
-    color: var(--light-color);
-    cursor: pointer;
+@media screen and (min-width: 768px) {
+  .box {
+    width: 540px;
+    border-radius: 20px;
+    padding-bottom: 60px;
   }
-  
-  .button:hover {
-    transform: scale(1.1);
-  
+  .button {
+    right: 40px;
   }
+  .leader {
+    font-size: 30px;
+    line-height: 45px;
+  }
+}
 
-  .buttonsContainer {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+.buttonIcon {
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  color: var(--light-color);
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .buttons {
-    font-family: 'Circe';
-    width: 300px;
-    height: 50px;
-    cursor: pointer;
-    border-radius: 20px;
+  font-family: 'Circe';
+  width: 300px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 20px;
 
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    transition: transform 1s;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  transition: transform 1s;
 }
 
 .buttons:hover,
 .buttons:focus {
-    transform: scale(1.02);
+  transform: scale(1.02);
 }
 
 .buttonAddTransaction {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Circe Regular;
-    border: none;
-    margin: 51px 0 20px 0;
-    background-color: var(--green-color);
-    color: var(--light-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Circe Regular;
+  border: none;
+  margin: 51px 0 20px 0;
+  background-color: var(--green-color);
+  color: var(--light-color);
 }
 
 .buttonCancel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Circe Regular;
-    border: 1px solid var(--blue-active);
-    color: var(--blue-active);
-    background-color: var(--light-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Circe Regular;
+  border: 1px solid var(--blue-active);
+  color: var(--blue-active);
+  background-color: var(--light-color);
 }
 
-.Expense{
+.Expense {
   margin-left: 10px;
 }
-.block{
+.block {
   display: flex;
   margin-top: 25px;
   margin-left: 65px;
