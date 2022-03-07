@@ -4,69 +4,30 @@ import { TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import InputAdornment from '@mui/material/InputAdornment';
 import {
-  fetchTransactions,
+  // fetchTransactions,
   getAllTransactions,
 } from '../../redux/transactions';
-import { authSelectors } from '../../redux/auth';
+import { authSelectors, authOperations } from '../../redux/auth';
 import formatNumber from '../../service/formatNumber';
 import s from './Balance.module.css';
 
 const useStylesReddit = makeStyles(theme => ({
   root: {
     fontFamily: 'Circe-Regular',
-    width: '350px',
-    height: '80px',
     lineHeight: 1.5,
     color: '#a6a6a6',
-    // backgroundColor: 'red',
-    // color: 'red',
-    border: '1px solid #e2e2e1',
-    overflow: 'hidden',
-
-    [theme.breakpoints.down(1280)]: {
-      width: '334px',
-    },
-    [theme.breakpoints.down(768)]: {
-      width: '280px',
-    },
-    transition: theme.transitions.create(['border-color', 'box-shadow']),
-    '&:hover': {
-      backgroundColor: '#FFFFFF',
-    },
-    '&$focused': {
-      backgroundColor: '#FFFFFF',
-      borderColor: theme.palette.primary.main,
-    },
   },
-
-  // TextField: {
-  //   FilledInput: {
-  //     backgroundColor: 'red',
-  //     color: 'red',
-  //   },
-  // },
-  // MuiFilledInput: {
-  //   backgroundColor: 'red',
-  // },
   input: {
-    fontFamily: 'SegoeUI',
+    fontFamily: 'Poppins Bold',
     fontSize: '30px',
-    lineHeight: 1.5,
-    borderRadius: '30px 0 0 30px',
     paddingTop: '10px',
-    overflow: 'hidden',
-    // color:'red'
   },
   startAdomerment: {
-    fontFamily: 'SegoeUI',
-    fontSize: '20px',
-    lineHeight: 1.5,
-    color: '#000',
-    // backgroundColor: '#FFFFFF',
-    backgroundColor: 'transparent',
-    // color: 'red',
-    marginTop: '15px',
-    marginLeft: '28px',
+    fontFamily: 'Poppins Regular',
+    fontSize: '30px',
+    [theme.breakpoints.up(768)]: {
+      marginLeft: '40px',
+    },
   },
   focused: {},
 }));
@@ -82,7 +43,7 @@ const Balance = () => {
 
   useEffect(() => {
     if (allTransactions) return;
-    dispatch(fetchTransactions());
+    dispatch(authOperations.fetchCurrentUser());
   }, [dispatch, allTransactions]);
 
   return (
@@ -96,7 +57,7 @@ const Balance = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment
-                className={`${classes.startAdomerment} ${s.input}`}
+                className={classes.startAdomerment}
                 position="start"
               >
                 <span className={s.currency}>₴ </span>
@@ -106,7 +67,7 @@ const Balance = () => {
             // classes,
             disableUnderline: true,
           }}
-          variant="filled"
+          variant="standard"
         />
       </div>
     )
