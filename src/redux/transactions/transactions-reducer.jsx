@@ -9,7 +9,7 @@ import {
 const items = createReducer([], {
   [fetchTransactions.fulfilled]: (_, { payload }) => payload,
   [deleteTransaction.fulfilled]: (state, { payload }) =>
-    state.filter(({ id }) => id !== payload),
+    state.filter(({ _id }) => _id !== payload),
 });
 
 const loading = createReducer(false, {

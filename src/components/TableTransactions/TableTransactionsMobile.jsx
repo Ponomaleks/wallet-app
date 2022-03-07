@@ -10,9 +10,6 @@ import './TableTransactionsMobile.module.css';
 
 const TableTransactionsMobile = () => {
   const AllTransactions = useSelector(getAllTransactions);
-  // const event = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
-  // const All = event.toLocaleDateString(undefined, AllTransactions);
-  // const All = AllTransactions.sort((a, b) => (a.date > b.date ? 1 : -1));
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,8 +19,9 @@ const TableTransactionsMobile = () => {
   return (
     AllTransactions && (
       <ul>
-        {AllTransactions.map(transaction => (
-          <li key={transaction._id}>
+        {AllTransactions.map(transaction => 
+        // transaction.sort((a, b) => (a.date > b.date ? 1 : -1))
+          (<li key={transaction._id}>
             <CardTransaction transaction={transaction} />
           </li>
         ))}
