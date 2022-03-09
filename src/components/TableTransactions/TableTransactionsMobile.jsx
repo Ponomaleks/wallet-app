@@ -16,11 +16,18 @@ const TableTransactionsMobile = () => {
     dispatch(fetchTransactions());
   }, [dispatch]);
 
+    const arr = [...AllTransactions];
+    const sortedAllTransactions = arr.sort(function(a, b){
+      var dateA=new Date(a.date);
+      var dateB=new Date(b.date);
+      return dateB - dateA;
+    })
+
+    
   return (
     AllTransactions && (
       <ul>
-        {AllTransactions.map(transaction => 
-        // transaction.sort((a, b) => (a.date > b.date ? 1 : -1))
+        {sortedAllTransactions.map(transaction => 
           (<li key={transaction._id}>
             <CardTransaction transaction={transaction} />
           </li>
