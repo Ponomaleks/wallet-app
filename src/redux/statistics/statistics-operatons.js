@@ -3,7 +3,7 @@ import axios from 'axios';
 // import { useDispatch } from 'react-redux';
 
 // axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
-axios.defaults.baseURL = 'http://localhost:8080/api';
+axios.defaults.baseURL = 'https://wallet-app-backend-gr10.herokuapp.com/api';
 
 const fetchStatistics = createAsyncThunk(
   'statistics/fetchStatistics',

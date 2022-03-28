@@ -5,7 +5,7 @@ import {
   addNewOperationError,
 } from './operations-action';
 
-axios.defaults.baseURL = 'http://localhost:8080/api';
+axios.defaults.baseURL = 'https://wallet-app-backend-gr10.herokuapp.com/api';
 
 const createOperation = operation => async dispatch => {
   dispatch(addNewOperationRequest());

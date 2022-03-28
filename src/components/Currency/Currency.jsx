@@ -15,7 +15,7 @@ const initialCurrState = {
 export default function Currency() {
   const [USD, setUSD] = useState(initialCurrState);
   const [EUR, setEUR] = useState(initialCurrState);
-  const [RUB, setRUB] = useState(initialCurrState);
+  // const [RUB, setRUB] = useState(initialCurrState);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function Currency() {
     const lastFetched = JSON.parse(localStorage.getItem('currencyFetchTime'));
     const localUSDCurrencyData = JSON.parse(localStorage.getItem('USD'));
     const localEURCurrencyData = JSON.parse(localStorage.getItem('EUR'));
-    const localRUBCurrencyData = JSON.parse(localStorage.getItem('RUB'));
+    // const localRUBCurrencyData = JSON.parse(localStorage.getItem('RUB'));
 
     if (!lastFetched && !localUSDCurrencyData) {
       setTimeout(() => {
@@ -59,10 +59,10 @@ export default function Currency() {
         buy: localEURCurrencyData.buy,
         sell: localEURCurrencyData.sell,
       });
-      setRUB({
-        buy: localRUBCurrencyData.buy,
-        sell: localRUBCurrencyData.sell,
-      });
+      // setRUB({
+      //   buy: localRUBCurrencyData.buy,
+      //   sell: localRUBCurrencyData.sell,
+      // });
       setLoading(false);
     }
 
@@ -110,22 +110,22 @@ export default function Currency() {
               }),
             );
           }
-          if (
-            currency.currencyCodeA === 643 &&
-            currency.currencyCodeB === 980
-          ) {
-            setRUB({
-              buy: currency.rateBuy,
-              sell: currency.rateSell,
-            });
-            localStorage.setItem(
-              'RUB',
-              JSON.stringify({
-                buy: currency.rateBuy,
-                sell: currency.rateSell,
-              }),
-            );
-          }
+          // if (
+          //   currency.currencyCodeA === 643 &&
+          //   currency.currencyCodeB === 980
+          // ) {
+          //   setRUB({
+          //     buy: currency.rateBuy,
+          //     sell: currency.rateSell,
+          //   });
+          //   localStorage.setItem(
+          //     'RUB',
+          //     JSON.stringify({
+          //       buy: currency.rateBuy,
+          //       sell: currency.rateSell,
+          //     }),
+          //   );
+          // }
         });
         setLoading(false);
       })
@@ -179,13 +179,19 @@ export default function Currency() {
             </tr>
             <tr>
               <td className={s.currencyName}>RUB</td>
+              <td colspan="2" className={s.warship}>
+                Russian warship, go f*** yourself
+              </td>
+            </tr>
+            {/* <tr>
+              <td className={s.currencyName}>RUB</td>
               <td className={s.currencyBuyValue}>
                 {Number(RUB.buy).toFixed(2)}
               </td>
               <td className={s.currencySellValue}>
                 {Number(RUB.sell).toFixed(2)}
               </td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
         <Waves className={s.waves} />

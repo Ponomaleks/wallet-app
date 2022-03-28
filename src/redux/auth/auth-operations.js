@@ -6,7 +6,7 @@ defaults.styling = 'material';
 defaults.icons = 'material';
 defaults.delay = 1000;
 
-axios.defaults.baseURL = 'http://localhost:8080/api'; //поставить ссылку на бек
+axios.defaults.baseURL = 'https://wallet-app-backend-gr10.herokuapp.com/api'; //поставить ссылку на бек
 
 const token = {
   set(token) {

@@ -34,7 +34,6 @@
     "react-datepicker": "^4.6.0",
     "react-datetime": "^3.1.1",
     "react-dom": "^17.0.2",
-    "react-loader-spinner": "^5.1.4",
     "react-media": "^1.10.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
@@ -54,7 +53,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "predeploy": "npm run build",
+    "deploy": "netlify deploy -p"
   },
   "eslintConfig": {
     "extends": [
